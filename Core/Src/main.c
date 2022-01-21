@@ -124,7 +124,7 @@ int main(void)
   ili9341_drv.Init();
   ILI9341_FillScreen(ORANGE);
   ILI9341_SetRotation(SCREEN_HORIZONTAL_2);
-  ILI9341_DrawText("HELLO WORLD", FONT4, 0, 0, WHITE, BLACK);
+  draw_custom();//ILI9341_DrawText("HELLO WORLD!", FONT4, 0, 0, WHITE, BLACK);
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */

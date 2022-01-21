@@ -37,7 +37,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "ili9341.h"
-
+#include "font/button_pic.h"
 /** @addtogroup BSP
   * @{
   */ 
@@ -597,7 +597,7 @@ void ILI9341_DrawChar(char ch, const uint8_t font[], uint16_t X, uint16_t Y, uin
 		{
 			uint8_t z =  tempChar[fBPL * i + ((j & 0xF8) >> 3) + 1]; /* (j & 0xF8) >> 3, increase one by 8-bits */
 			uint8_t b = 1 << (j & 0x07);
-			if (( z & b ) != 0x00)
+			if (( z & b ) != 0x00) // выводим только 1
 			{
 				ILI9341_DrawPixel(X+i, Y+j, color);
 			}
@@ -679,6 +679,53 @@ void ILI9341_SetRotation(uint8_t rotation){
 		default:
 			break;
 		}
+}
+
+void draw_custom(){
+	short X = 10;
+	short Y = 10;
+	union MyUnion
+		{
+			char tmpout[96];
+			long l[24];
+			uint32_t lu[24];
+		}s;
+for(int i = 0 ; i < 25;i++){
+	ILI9341_DrawRectangle(X, Y, 32, 24, WHITE);
+	conv_lcd(s.tmpout, (unsigned char*)button_pic[i], 32, 24, 96);
+
+		for (int y = 0; y < 24; y++) {
+			for (int x = 0; x < 32; x++) {
+				if (s.l[y] & (1 << x))
+					ILI9341_DrawPixel(X + x, Y + y, BLACK);
+				//else
+					//ILI9341_DrawPixel(x, y, WHITE);
+				}
+			}
+	HAL_Delay(4000);
+};
+
+}
+
+void conv_lcd(char* out, unsigned char* in, short width_px, short height_px, short sz){
+	unsigned char tmp = 0;
+	int width_b = width_px/8;// байтов в строке
+	int height_b = height_px / 8;
+	for (int a = 0; a < height_b; a++) {
+		for (int z = 0; z < 8; z++) {
+			for (int y = 0; y < width_b; y++) {
+				tmp = 0;
+				for (int i = 0; i < 8; i++) {
+
+					if (in[i + (y * 8) + (a * width_px)] & (1 << z))
+						tmp |= (1 << i);
+
+					//std::cout << std::hex << (int)in[i + (y * 8)] << "    " << (1 << y) << "      " << (int)tmp << '\r' << '\n';
+				}
+				out[y + (z * width_b) + (a * width_b * 8)] = tmp;
+			}
+		}
+	}
 }
 /**
   * @}
