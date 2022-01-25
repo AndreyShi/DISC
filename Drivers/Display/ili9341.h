@@ -267,6 +267,12 @@ void ILI9341_DrawText(const char* str, const uint8_t font[], uint16_t X, uint16_
 void ILI9341_SetRotation(uint8_t rotation);
 void draw_custom();
 void conv_lcd(char* out, unsigned char* in, short width_px, short height_px, short sz);
+void put_char(unsigned char c, short X, short Y,uint16_t color, uint16_t bgcolor);
+void put_button(short X, short Y,uint16_t color, uint16_t bgcolor);
+void put_button_pic(int pic, short X, short Y,uint16_t color, uint16_t bgcolor);
+void put_digit_big(int digit, short X, short Y,uint16_t color, uint16_t bgcolor);
+void put_digit_large(int digit, short X, short Y,uint16_t color, uint16_t bgcolor);
+void put_axis_big(int axis, short X, short Y,uint16_t color, uint16_t bgcolor);
 /* LCD driver structure */
 extern LCD_DrvTypeDef   ili9341_drv;
 

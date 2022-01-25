@@ -62,6 +62,7 @@ SDRAM_HandleTypeDef hsdram1;
 osThreadId defaultTaskHandle;
 /* USER CODE BEGIN PV */
 extern LCD_DrvTypeDef   ili9341_drv;
+extern int main_t();
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -124,7 +125,22 @@ int main(void)
   ili9341_drv.Init();
   ILI9341_FillScreen(ORANGE);
   ILI9341_SetRotation(SCREEN_HORIZONTAL_2);
-  draw_custom();//ILI9341_DrawText("HELLO WORLD!", FONT4, 0, 0, WHITE, BLACK);
+  for(int i = 0 ; i < 10;i++){
+  //put_digit_big(i, 10, 10,BLACK, WHITE);
+  put_digit_large(i, 10, 10,BLACK, WHITE);
+  HAL_Delay(500);
+  }
+  //main_t();
+  //put_button_pic(0, 10, 10,BLACK, WHITE);//+
+  //for(int i = 0 ; i <256;i++){
+  //put_char('д', 10, 10,BLACK, WHITE);//+
+ // HAL_Delay(500);
+ // }
+  //put_button( 10, 10,BLACK, WHITE);
+
+   //put_axis_big(i, 10, 10,BLACK, WHITE);// +
+  //draw_custom();
+  //ILI9341_DrawText("HELLO WORLD!", FONT4, 0, 0, WHITE, BLACK);
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */

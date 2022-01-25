@@ -37,7 +37,13 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "ili9341.h"
+#define PROGMEM
 #include "font/button_pic.h"
+#include "font/button.h"
+#include "font/DigitBig.h"
+#include "font/DigitLarge.h"
+#include "font/symbolsnew.h"
+#include "font/AxisBig.h"
 /** @addtogroup BSP
   * @{
   */ 
@@ -724,6 +730,150 @@ void conv_lcd(char* out, unsigned char* in, short width_px, short height_px, sho
 				}
 				out[y + (z * width_b) + (a * width_b * 8)] = tmp;
 			}
+		}
+	}
+}
+
+void put_char(unsigned char c, short X, short Y,uint16_t color, uint16_t bgcolor)
+{
+	union MyUnion
+	{
+		char c[16];
+		long l[16];
+		uint32_t lu[16];
+	}s;
+
+	conv_lcd(s.c, (unsigned char*)_txtnew[c], 8, 16, 16);
+	ILI9341_DrawRectangle(X, Y, 8, 16, bgcolor);
+	for (int y = 0; y < 16; y++) {
+		for (int x = 0; x < 8; x++) {
+			//SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), COORD{ X + (short)x,Y + (short)y });
+			if (s.c[y] & (1 << x))
+				ILI9341_DrawPixel(X + x, Y + y, color);
+				//std::cout << '#';//char(219);
+			//else
+				//std::cout << '_';
+		}
+	}
+}
+
+void put_button(short X, short Y,uint16_t color, uint16_t bgcolor)
+{
+	union MyUnion
+	{
+		char c[200];
+		long l[50];
+		uint32_t lu[50];
+	}s;
+
+	conv_lcd(s.c, (unsigned char*)button, 40, 40, 200);
+	ILI9341_DrawRectangle(X, Y, 40, 40, bgcolor);
+	for (int y = 0; y < 40; y++) {
+		for (int d = 0; d < 5; d++) {
+			for (int x = 0; x < 8; x++) {
+				//SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), COORD{ X + (short)x + (8 * (short)d),Y + (short)y });
+				if (s.c[d + (y * 5)] & (1 << x))
+					ILI9341_DrawPixel(X + (short)x + (8 * (short)d), Y + y, color);
+					//std::cout << '#';//char(219);
+				//else
+					//std::cout << '_';
+			}
+		}
+	}
+}
+
+void put_button_pic(int pic, short X, short Y,uint16_t color, uint16_t bgcolor)
+{
+	union MyUnion
+	{
+		char c[96];
+		long l[24];
+		uint32_t lu[24];
+	}s;
+
+	conv_lcd(s.c, (unsigned char*)button_pic[pic], 32, 24, 96);
+	ILI9341_DrawRectangle(X, Y, 32, 24, bgcolor);
+	for (int y = 0; y < 24; y++) {
+		for (int x = 0; x < 32; x++) {
+			//SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), COORD{ X + (short)x,Y + (short)y });
+			if (s.l[y] & (1 << x))
+				ILI9341_DrawPixel(X + x, Y + y, color);
+				//std::cout << '#';//char(219);
+			//else
+				//std::cout << '_';
+		}
+	}
+}
+
+void put_digit_big(int digit, short X, short Y,uint16_t color, uint16_t bgcolor)
+{
+	union MyUnion
+	{
+		char c[120];
+		long l[30];
+		uint32_t lu[30];
+	}s;
+
+	conv_lcd(s.c, (unsigned char*)digit_big[digit], 24, 40, 120);
+	ILI9341_DrawRectangle(X, Y, 24, 40, bgcolor);
+	for (int y = 0; y < 40; y++) {
+		for (int d = 0; d < 3; d++) {
+			for (int x = 0; x < 8; x++) {
+			//SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), COORD{ X + (short)x + (8 * (short)d),Y + (short)y });
+				if (s.c[d + (y * 3)] & (1 << x))
+					ILI9341_DrawPixel(X + (short)x + (8 * (short)d), Y + y, color);
+					//std::cout << '#';//char(219);
+				//else
+					//std::cout << '_';
+			}
+		}
+	}
+}
+
+void put_digit_large(int digit, short X, short Y,uint16_t color, uint16_t bgcolor)
+{
+	union MyUnion
+	{
+		char c[192];
+		long l[48];
+		uint32_t lu[48];
+	}s;
+
+	conv_lcd(s.c, (unsigned char*)DigitLarge[digit], 24, 64, 192);
+	ILI9341_DrawRectangle(X, Y, 24, 64, bgcolor);
+	for (int y = 0; y < 64; y++) {
+		for (int d = 0; d < 3; d++) {
+			for (int x = 0; x < 8; x++) {
+				//SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), COORD{ X + (short)x + (8 * (short)d),Y + (short)y });
+				if (s.c[d + (y * 3)] & (1 << x))
+					ILI9341_DrawPixel(X + (short)x + (8 * (short)d), Y + y, color);
+					//std::cout << '#';//char(219);
+				//else
+					//std::cout << '_';
+			}
+		}
+	}
+}
+
+void put_axis_big(int axis, short X, short Y,uint16_t color, uint16_t bgcolor)
+{
+	union MyUnion
+	{
+		char c[160];
+		long l[40];
+		uint32_t lu[40];
+	}s;
+
+	conv_lcd(s.c, (unsigned char*)axis_big[axis], 32, 40, 160);
+	ILI9341_DrawRectangle(X, Y, 32, 40, bgcolor);
+	for (int y = 0; y < 40; y++) {
+		for (int x = 0; x < 32; x++) {
+			//SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), COORD{ X + (short)x,Y + (short)y });
+			if (s.l[y] & (1 << x))
+				ILI9341_DrawPixel(X + x, Y + y, color);
+				//std::cout << '#';//char(219);
+			//else
+				//std::cout << '_';
 		}
 	}
 }
