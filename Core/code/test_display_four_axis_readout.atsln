@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "test_display_four_axis_readout", "test_display_four_axis_readout.cppproj", "{C6EDB1AD-530B-46C6-B998-E8729DEDD388}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "bootLir", "E:\Xmega_boot_lir\bootLir.cppproj", "{A9C50D59-0022-4347-8174-DE892F96B352}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		appDbg_256|AVR = appDbg_256|AVR
+		appDbg_384|AVR = appDbg_384|AVR
+		bootDbg_256|AVR = bootDbg_256|AVR
+		bootDbg_384|AVR = bootDbg_384|AVR
+		bootDebug_384|AVR = bootDebug_384|AVR
+		bootDebug|AVR = bootDebug|AVR
+		bootRelease_384|AVR = bootRelease_384|AVR
+		bootRelease|AVR = bootRelease|AVR
+		Debug_384|AVR = Debug_384|AVR
+		Debug|AVR = Debug|AVR
+		Release_384|AVR = Release_384|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.appDbg_256|AVR.ActiveCfg = appDbg_256|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.appDbg_256|AVR.Build.0 = appDbg_256|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.appDbg_384|AVR.ActiveCfg = appDbg_384|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.appDbg_384|AVR.Build.0 = appDbg_384|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.bootDbg_256|AVR.ActiveCfg = Debug_384|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.bootDbg_256|AVR.Build.0 = Debug_384|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.bootDbg_384|AVR.ActiveCfg = appDbg_384|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.bootDbg_384|AVR.Build.0 = appDbg_384|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.bootDebug_384|AVR.ActiveCfg = Debug_384|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.bootDebug_384|AVR.Build.0 = Debug_384|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.bootDebug|AVR.ActiveCfg = Debug|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.bootDebug|AVR.Build.0 = Debug|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.bootRelease_384|AVR.ActiveCfg = Release|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.bootRelease_384|AVR.Build.0 = Release|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.bootRelease|AVR.ActiveCfg = Release|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.bootRelease|AVR.Build.0 = Release|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.Debug_384|AVR.ActiveCfg = Debug|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.Debug_384|AVR.Build.0 = Debug|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.Debug|AVR.ActiveCfg = Debug|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.Debug|AVR.Build.0 = Debug|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.Release_384|AVR.ActiveCfg = Debug_384|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.Release_384|AVR.Build.0 = Debug_384|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.Release|AVR.ActiveCfg = Release|AVR
+		{C6EDB1AD-530B-46C6-B998-E8729DEDD388}.Release|AVR.Build.0 = Release|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.appDbg_256|AVR.ActiveCfg = bootRelease_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.appDbg_256|AVR.Build.0 = bootRelease_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.appDbg_384|AVR.ActiveCfg = bootRelease_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.appDbg_384|AVR.Build.0 = bootRelease_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.bootDbg_256|AVR.ActiveCfg = bootDebug_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.bootDbg_256|AVR.Build.0 = bootDebug_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.bootDbg_384|AVR.ActiveCfg = bootDebug_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.bootDbg_384|AVR.Build.0 = bootDebug_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.bootDebug_384|AVR.ActiveCfg = bootDebug_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.bootDebug_384|AVR.Build.0 = bootDebug_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.bootDebug|AVR.ActiveCfg = bootDebug|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.bootDebug|AVR.Build.0 = bootDebug|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.bootRelease_384|AVR.ActiveCfg = bootRelease_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.bootRelease_384|AVR.Build.0 = bootRelease_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.bootRelease|AVR.ActiveCfg = bootRelease|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.bootRelease|AVR.Build.0 = bootRelease|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.Debug_384|AVR.ActiveCfg = bootDebug_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.Debug_384|AVR.Build.0 = bootDebug_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.Debug|AVR.ActiveCfg = bootDebug|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.Debug|AVR.Build.0 = bootDebug|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.Release_384|AVR.ActiveCfg = bootRelease_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.Release_384|AVR.Build.0 = bootRelease_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.Release|AVR.ActiveCfg = bootRelease_384|AVR
+		{A9C50D59-0022-4347-8174-DE892F96B352}.Release|AVR.Build.0 = bootRelease_384|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
