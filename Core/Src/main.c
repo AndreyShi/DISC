@@ -125,7 +125,7 @@ int main(void)
   ili9341_drv.Init();
   ILI9341_FillScreen(ORANGE);
   ILI9341_SetRotation(SCREEN_HORIZONTAL_2);
-  for(int i = 0 ; i < 10;i++){
+  for(int8_t i = 0 ; i < 10;i++){
   //put_digit_big(i, 10, 10,BLACK, WHITE);
   put_digit_large(i, 10, 10,BLACK, WHITE);
   HAL_Delay(1500);
