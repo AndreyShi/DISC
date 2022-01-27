@@ -32,6 +32,7 @@
  *  \note The CMDEX bit must be set within 4 clock cycles after setting the
  *        protection byte in the CCP register.
  */
+#ifdef __AVR_ATxmega256A3U__
 #define NVM_EXEC()	asm("push r30"      "\n\t"	\
 						"push r31"      "\n\t"	\
 						"push r16"      "\n\t"	\
@@ -47,7 +48,9 @@
 						"pop r31"       "\n\t"	\
 						"pop r30"       "\n\t"	\
 )
-
+#else
+#define NVM_EXEC()
+#endif
 //#include "MenuLir.h"
 // derived class :base class
 class CPrg : public CFlash
@@ -602,10 +605,10 @@ int time_to_flash;
  void only_for_debug(void);
  void init_to_default_state_axis_cfg(int num);
  void to_copy_axis_config(int destination,int sourse);     
- bool axis_is_chosen(unsigned int *P20,unsigned int *P21,unsigned int *P22,unsigned int *P23);
- bool axis_is_chosen_to_screen(unsigned int *Str1,unsigned int *Str2,unsigned int *Str3,unsigned int *Str4);
- bool to_write_to_eeprom_axis_is_chosen(unsigned int *P20,unsigned int *P21,unsigned int *P22,unsigned int *P23);
- bool to_write_to_eeprom_axis_to_screen(unsigned int *Str1,unsigned int *Str2,unsigned int *Str3,unsigned int *Str4);
+ bool axis_is_chosen(uint16_t *P20,uint16_t *P21,uint16_t *P22,uint16_t *P23);
+ bool axis_is_chosen_to_screen(uint16_t *Str1,uint16_t *Str2,uint16_t *Str3,uint16_t *Str4);
+ bool to_write_to_eeprom_axis_is_chosen(uint16_t *P20,uint16_t *P21,uint16_t *P22,uint16_t *P23);
+ bool to_write_to_eeprom_axis_to_screen(uint16_t *Str1,uint16_t *Str2,uint16_t *Str3,uint16_t *Str4);
  bool reset_eeprom_param(void); 
  bool reset_eeprom_and_ram_options(void);   
  unsigned char read_one_byte_eeprom_address_page(unsigned char addr_page,unsigned char addr_byte);
@@ -614,7 +617,7 @@ int time_to_flash;
  void EEPROM_WriteByte( uint8_t pageAddr, uint8_t byteAddr, uint8_t value );
  void EEPROM_FlushBuffer( void );
  void change_format_axis(int *num, char right_left);
- void to_save_type_of_axis(unsigned int *P20,unsigned int *P21,unsigned int *P22,unsigned int *P23); 
+ void to_save_type_of_axis(uint16_t *P20,uint16_t *P21,uint16_t *P22,uint16_t *P23);
  void change_mode_axis(int *num);
  void change_direction_axis(int *num);
  void change_save_axis(int *num);

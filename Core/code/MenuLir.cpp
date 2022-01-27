@@ -581,23 +581,25 @@ void Menu::strings_out(uint8_t place,uint8_t string_size,char *reverse_order)
 		case 2:
 		if(Str[0] == no_axis && configUSE_Large_Digit == 1 && display.position_to_see[0] != CDisp::TIME){
 			put_large_string(string_size,reverse_order,4);// 0.000 (1.440ms) - -99999.000 (2.320ms)
-			}
-		else		
+			}else{
 			put_big_string(string_size,reverse_order,7);
+			}
 			break;
 
 		case 3:
-		if(Str[1] == no_axis && configUSE_Large_Digit == 1 && display.position_to_see[1] != CDisp::TIME)
+		if(Str[1] == no_axis && configUSE_Large_Digit == 1 && display.position_to_see[1] != CDisp::TIME){
 			put_large_string(string_size,reverse_order,11);// - 2.520 ms
-		else
+			}else{
 			put_big_string(string_size,reverse_order,14);
+			}
 			break;
 
 		case 4:
-		if(Str[2] == no_axis && configUSE_Large_Digit == 1 && display.position_to_see[2] != CDisp::TIME)
+		if(Str[2] == no_axis && configUSE_Large_Digit == 1 && display.position_to_see[2] != CDisp::TIME){
 			put_large_string(string_size,reverse_order,18);
-		else
+			}else{
 			put_big_string(string_size,reverse_order,21);
+			}
 			break;
 	}
 }
@@ -2487,7 +2489,7 @@ void Menu::show_interval_izmer_speed(int ch,int x_offset,int y_offset,char align
 		display.print_flash_local(s06sek,0,x_offset,y_offset,align); 
 }
 
-bool Menu::find_same_symbol(unsigned int *symbols,int cur)
+bool Menu::find_same_symbol(uint16_t *symbols,int cur)
 {
 	for(int i = 0;i<N_AXIS;i++)
 	{

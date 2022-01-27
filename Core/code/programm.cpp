@@ -1747,7 +1747,7 @@ void  CPrg::only_for_debug(void){
 		}			
 }
 //22.02.2018
-void CPrg::to_save_type_of_axis(unsigned int *P20,unsigned int *P21,unsigned int *P22,unsigned int *P23){
+void CPrg::to_save_type_of_axis(uint16_t *P20,uint16_t *P21,uint16_t *P22,uint16_t *P23){
 	cli();
 	if(*P20>=AXIS_A) {
 		axis_cfg[0].type=TYPE::CIRCLE;
@@ -3139,8 +3139,8 @@ void CPrg::to_save_luft_to_RAM(int channel,long gap){
 	sei();	  
 };
 
-bool CPrg::axis_is_chosen(unsigned int *P20,unsigned int *P21,
-                          unsigned int *P22,unsigned int *P23){
+bool CPrg::axis_is_chosen(uint16_t *P20,uint16_t *P21,
+		uint16_t *P22,uint16_t *P23){
 	bool need_to_write=false;
 	unsigned char tmp[4];
 	bool error;
@@ -3163,7 +3163,7 @@ to_save_type_of_axis(P20,P21,P22,P23);
 return error;		
 }
 
-bool CPrg::axis_is_chosen_to_screen(unsigned int *Str1,unsigned int *Str2,unsigned int *Str3,unsigned int *Str4)
+bool CPrg::axis_is_chosen_to_screen(uint16_t *Str1,uint16_t *Str2,uint16_t *Str3,uint16_t *Str4)
 {
     	bool need_to_write=false;
     	unsigned char tmp[4];
@@ -3458,8 +3458,8 @@ void CPrg::EEPROM_FlushBuffer(void)
 }
 
 
-bool  CPrg::to_write_to_eeprom_axis_is_chosen(unsigned int *P20,unsigned int *P21,
-                                       unsigned int *P22,unsigned int *P23){
+bool  CPrg::to_write_to_eeprom_axis_is_chosen(uint16_t *P20,uint16_t *P21,
+		uint16_t *P22,uint16_t *P23){
 	unsigned char tmp[4];
 	bool error;
 		 tmp[0] = read_one_byte_eeprom_address_int(0,&error);
@@ -3480,7 +3480,7 @@ bool  CPrg::to_write_to_eeprom_axis_is_chosen(unsigned int *P20,unsigned int *P2
 	return error;								   
 	}
 
-bool CPrg::to_write_to_eeprom_axis_to_screen(unsigned int *Str1,unsigned int *Str2,unsigned int *Str3,unsigned int *Str4)
+bool CPrg::to_write_to_eeprom_axis_to_screen(uint16_t *Str1,uint16_t *Str2,uint16_t *Str3,uint16_t *Str4)
 {
      unsigned char tmp[4];
      bool error;

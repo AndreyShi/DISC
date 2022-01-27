@@ -556,7 +556,7 @@ unsigned char CDisp::rotate_button_pic_(BUTTON_PIC npic,int t)
 {
 unsigned char byte[8];
 unsigned char byte_to_display = 0;
-
+extern const unsigned char button_pic_new_2019[][96];
 static char counter;
 static int counter2;
 unsigned char  mask;

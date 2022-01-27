@@ -350,8 +350,8 @@ class Menu
 	
 	 unsigned char WorkCorr_entry;
 	 //----------------------
-	unsigned int P2[N_AXIS + N_SA];// ОСИ ПУЛЬТА (линейные ,круговые, слепые)
-	unsigned int Str[N_STR];	   // ОСЕВЫЕ СТРОКИ ПУЛЬТА
+	 uint16_t P2[N_AXIS + N_SA];// ОСИ ПУЛЬТА (линейные ,круговые, слепые)
+	 uint16_t Str[N_STR];	   // ОСЕВЫЕ СТРОКИ ПУЛЬТА
 	 //----------------------
 	 bool ch_use(const int ch); 
 	 void change_axis_name(const int ch);
@@ -394,7 +394,7 @@ class Menu
 		bool exitmenuDiagnostika(int id);
 		void check_pointer();
 		void show_interval_izmer_speed(int ch,int x_offset,int y_offset,char align = 0);
-		bool find_same_symbol(unsigned int *symbols,int cur);
+		bool find_same_symbol(uint16_t *symbols,int cur);
 		int find_same_symbol_and_return_str(CInit::AXIS_NAME symbols[],int cur);
 		int GetCountSpeedStr(uint8_t *param);
 		bool Update_error;

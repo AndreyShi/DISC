@@ -51,8 +51,8 @@
 
 #define MAX_INSTR 10  //кол -во инструмента
 
-const char *const p_DATE = __DATE__;
-const char *const p_TIME = __TIME__;
+extern const char *const p_DATE;
+extern const char *const p_TIME;
 
 #define usb200000 1
 #define usb115200 2
