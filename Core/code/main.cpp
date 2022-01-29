@@ -642,7 +642,11 @@ void to_copy_parameters_from_eeprom_to_ram(void){
 /*
 точка входа в программу
 */
+#ifdef STM32F429xx
 int main_t()
+#else
+int main()
+#endif
 {   
    cli(); 
    //29.12.2017 watchdog must be disabled

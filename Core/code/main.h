@@ -12,7 +12,6 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "config.h"
-int main_t();
 #define USART_DEBUG(x) USARTD0.DATA = x;
 //#ifdef cli
 //#undef cli

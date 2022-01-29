@@ -556,7 +556,7 @@ unsigned char CDisp::rotate_button_pic_(BUTTON_PIC npic,int t)
 {
 unsigned char byte[8];
 unsigned char byte_to_display = 0;
-extern const unsigned char button_pic_new_2019[][96];
+
 static char counter;
 static int counter2;
 unsigned char  mask;
@@ -601,7 +601,7 @@ else
 
 	for(int x = 0,y = counter2; x < 8 ;x++,y+=4)
 	{
-		byte[x]  = pgm_read_byte_near(&button_pic_new_2019[npic][y]);
+		//byte[x]  = pgm_read_byte_near(&button_pic_new_2019[npic][y]);
 		if(byte[x] & mask) 
 			byte_to_display |= (char)pow(2,x);  
 

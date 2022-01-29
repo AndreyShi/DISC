@@ -1,8 +1,8 @@
-/*
+п»ї/*
  * symbolsnew.h
  *
  * Created: 15.06.2017 9:27:37
- *  Author: Андрей
+ *  Author: РђРЅРґСЂРµР№
  */ 
 
 
@@ -938,7 +938,7 @@ const unsigned char _txtnew[][16] PROGMEM= {
 	}
 	,
 
-	/* Element 0x002A - Char 0x002A  Asterisk по центру*/
+	/* Element 0x002A - Char 0x002A  Asterisk РїРѕ С†РµРЅС‚СЂСѓ*/
 	{
 		0x80,    /*  @.......  */
 		0xA0,    /*  @.@.....  */
@@ -2831,7 +2831,7 @@ const unsigned char _txtnew[][16] PROGMEM= {
 	}
 	,
 
-	/* Element 0x0080 - Char 0x0080  звездочка(Asterisk) высокая*/
+	/* Element 0x0080 - Char 0x0080  Р·РІРµР·РґРѕС‡РєР°(Asterisk) РІС‹СЃРѕРєР°СЏ*/
 	{
 		0x10,    /*  ...@....  */
 		0x54,    /*  .@.@.@..  */
@@ -2853,7 +2853,7 @@ const unsigned char _txtnew[][16] PROGMEM= {
 	}
 	,
 
-	/* Element 0x0081 - Char 0x0081 вертикальная черта*/
+	/* Element 0x0081 - Char 0x0081 РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ С‡РµСЂС‚Р°*/
 	{
 		0x00,    /*  ........  */
 		0x00,    /*  ........  */
@@ -2875,7 +2875,7 @@ const unsigned char _txtnew[][16] PROGMEM= {
 	}
 	,
 
-	/* Element 0x0082 - Char 0x0082 горизонтальная черта*/
+	/* Element 0x0082 - Char 0x0082 РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ С‡РµСЂС‚Р°*/
 	{
 		0x00,    /*  ........  */
 		0x00,    /*  ........  */
@@ -2897,7 +2897,7 @@ const unsigned char _txtnew[][16] PROGMEM= {
 	}
 	,
 
-	/* Element 0x0083 - Char 0x0083  уголок*/
+	/* Element 0x0083 - Char 0x0083  СѓРіРѕР»РѕРє*/
 	{
 		0x00,    /*  ........  */
 		0x00,    /*  ........  */
