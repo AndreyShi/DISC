@@ -229,6 +229,7 @@
     <OutputFileName>LIR541_2600_01</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputType>Executable</OutputType>
+    <PostBuildEvent>avr-objcopy.exe -O binary -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "LIR541_2600_01.elf" "LIR541_2600_01.bin"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug_384' ">
     <ToolchainSettings>
