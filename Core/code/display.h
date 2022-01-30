@@ -757,8 +757,12 @@ void strcpylir(char * _Dest, char const * _Source)
 }
 };
 
-
+#ifdef STM32F429xx
+#include "../../Middlewares/Display/CDispRGB.h"
+extern CDispRGB display;
+#else
 extern CDisp display;
+#endif
 
 
 

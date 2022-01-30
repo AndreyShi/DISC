@@ -265,7 +265,6 @@ void ILI9341_DrawRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t heig
 void ILI9341_DrawChar(char ch, const uint8_t font[], uint16_t X, uint16_t Y, uint16_t color, uint16_t bgcolor);
 void ILI9341_DrawText(const char* str, const uint8_t font[], uint16_t X, uint16_t Y, uint16_t color, uint16_t bgcolor);
 void ILI9341_SetRotation(uint8_t rotation);
-void draw_custom();
 void conv_lcd(char* out, unsigned char* in, short width_px, short height_px, short sz);
 void put_char(unsigned char c, short X, short Y,uint16_t color, uint16_t bgcolor);
 void put_button(short X, short Y,uint16_t color, uint16_t bgcolor);

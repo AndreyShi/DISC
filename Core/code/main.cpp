@@ -27,7 +27,11 @@
 
 TMsgKey MsgKey;
 CInit init;
+#ifdef STM32F429xx
+CDispRGB display;
+#else
 CDisp display;
+#endif
 CSpiMaster spi;
 CFlash myflash;
 CPrg flash_prg;
