@@ -87,11 +87,11 @@
 
 /* Private macro -------------------------------------------------------------*/
 #define __MCO1_CLK_ENABLE()   __HAL_RCC_GPIOA_CLK_ENABLE()
-#define MCO1_GPIO_PORT        GPIOA
+#define MCO1_GPIO_PORT        GPIOA_STM
 #define MCO1_PIN              GPIO_PIN_8
 
 #define __MCO2_CLK_ENABLE()   __HAL_RCC_GPIOC_CLK_ENABLE()
-#define MCO2_GPIO_PORT         GPIOC
+#define MCO2_GPIO_PORT         GPIOC_STM
 #define MCO2_PIN               GPIO_PIN_9
 /**
   * @}

@@ -189,7 +189,7 @@ typedef enum
   *          This parameter can be GPIO_PIN_x where x can be(0..15)
   * @retval The new state of __EXTI_LINE__ (SET or RESET).
   */
-#define __HAL_GPIO_EXTI_GET_IT(__EXTI_LINE__) (EXTI->PR & (__EXTI_LINE__))
+#define __HAL_GPIO_EXTI_GET_IT(__EXTI_LINE__) (EXTI->PR_STM & (__EXTI_LINE__))
 
 /**
   * @brief  Clears the EXTI's line pending bits.
@@ -197,7 +197,7 @@ typedef enum
   *          This parameter can be any combination of GPIO_PIN_x where x can be (0..15)
   * @retval None
   */
-#define __HAL_GPIO_EXTI_CLEAR_IT(__EXTI_LINE__) (EXTI->PR = (__EXTI_LINE__))
+#define __HAL_GPIO_EXTI_CLEAR_IT(__EXTI_LINE__) (EXTI->PR_STM = (__EXTI_LINE__))
 
 /**
   * @brief  Generates a Software interrupt on selected EXTI line.

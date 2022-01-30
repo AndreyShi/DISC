@@ -1277,12 +1277,12 @@
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) ||\
     defined(STM32F469xx) || defined(STM32F479xx)
-#define GPIO_GET_INDEX(__GPIOx__)    (uint8_t)(((__GPIOx__) == (GPIOA))? 0U :\
-                                               ((__GPIOx__) == (GPIOB))? 1U :\
-                                               ((__GPIOx__) == (GPIOC))? 2U :\
-                                               ((__GPIOx__) == (GPIOD))? 3U :\
-                                               ((__GPIOx__) == (GPIOE))? 4U :\
-                                               ((__GPIOx__) == (GPIOF))? 5U :\
+#define GPIO_GET_INDEX(__GPIOx__)    (uint8_t)(((__GPIOx__) == (GPIOA_STM))? 0U :\
+                                               ((__GPIOx__) == (GPIOB_STM))? 1U :\
+                                               ((__GPIOx__) == (GPIOC_STM))? 2U :\
+                                               ((__GPIOx__) == (GPIOD_STM))? 3U :\
+                                               ((__GPIOx__) == (GPIOE_STM))? 4U :\
+                                               ((__GPIOx__) == (GPIOF_STM))? 5U :\
                                                ((__GPIOx__) == (GPIOG))? 6U :\
                                                ((__GPIOx__) == (GPIOH))? 7U :\
                                                ((__GPIOx__) == (GPIOI))? 8U :\

@@ -252,13 +252,13 @@ typedef struct
   * @brief checks whether the specified PVD Exti interrupt flag is set or not.
   * @retval EXTI PVD Line Status.
   */
-#define __HAL_PWR_PVD_EXTI_GET_FLAG()  (EXTI->PR & (PWR_EXTI_LINE_PVD))
+#define __HAL_PWR_PVD_EXTI_GET_FLAG()  (EXTI->PR_STM & (PWR_EXTI_LINE_PVD))
 
 /**
   * @brief Clear the PVD Exti flag.
   * @retval None.
   */
-#define __HAL_PWR_PVD_EXTI_CLEAR_FLAG()  (EXTI->PR = (PWR_EXTI_LINE_PVD))
+#define __HAL_PWR_PVD_EXTI_CLEAR_FLAG()  (EXTI->PR_STM = (PWR_EXTI_LINE_PVD))
 
 /**
   * @brief  Generates a Software interrupt on PVD EXTI line.

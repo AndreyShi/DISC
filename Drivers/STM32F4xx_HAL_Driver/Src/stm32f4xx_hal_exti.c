@@ -441,11 +441,11 @@ void HAL_EXTI_IRQHandler(EXTI_HandleTypeDef *hexti)
   maskline = (1uL << (hexti->Line & EXTI_PIN_MASK));
 
   /* Get pending bit  */
-  regval = (EXTI->PR & maskline);
+  regval = (EXTI->PR_STM & maskline);
   if (regval != 0x00u)
   {
     /* Clear pending bit */
-    EXTI->PR = maskline;
+    EXTI->PR_STM = maskline;
 
     /* Call callback */
     if (hexti->PendingCallback != NULL)
@@ -480,7 +480,7 @@ uint32_t HAL_EXTI_GetPending(EXTI_HandleTypeDef *hexti, uint32_t Edge)
   maskline = (1uL << linepos);
 
   /* return 1 if bit is set else 0 */
-  regval = ((EXTI->PR & maskline) >> linepos);
+  regval = ((EXTI->PR_STM & maskline) >> linepos);
   return regval;
 }
 
@@ -506,7 +506,7 @@ void HAL_EXTI_ClearPending(EXTI_HandleTypeDef *hexti, uint32_t Edge)
   maskline = (1uL << (hexti->Line & EXTI_PIN_MASK));
 
   /* Clear Pending bit */
-  EXTI->PR =  maskline;
+  EXTI->PR_STM =  maskline;
 }
 
 /**

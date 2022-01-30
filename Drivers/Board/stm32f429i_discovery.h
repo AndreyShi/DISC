@@ -126,7 +126,7 @@ typedef enum
  * @brief Wakeup push-button
  */
 #define KEY_BUTTON_PIN                         GPIO_PIN_0
-#define KEY_BUTTON_GPIO_PORT                   GPIOA
+#define KEY_BUTTON_GPIO_PORT                   GPIOA_STM
 #define KEY_BUTTON_GPIO_CLK_ENABLE()           __HAL_RCC_GPIOA_CLK_ENABLE()
 #define KEY_BUTTON_GPIO_CLK_DISABLE()          __HAL_RCC_GPIOA_CLK_DISABLE()
 #define KEY_BUTTON_EXTI_IRQn                   EXTI0_IRQn
@@ -164,10 +164,10 @@ typedef enum
 
 /* Definition for DISCO I2Cx Pins */
 #define DISCOVERY_I2Cx_SCL_PIN                  GPIO_PIN_8
-#define DISCOVERY_I2Cx_SCL_GPIO_PORT            GPIOA
+#define DISCOVERY_I2Cx_SCL_GPIO_PORT            GPIOA_STM
 #define DISCOVERY_I2Cx_SCL_SDA_AF               GPIO_AF4_I2C3
 #define DISCOVERY_I2Cx_SDA_PIN                  GPIO_PIN_9
-#define DISCOVERY_I2Cx_SDA_GPIO_PORT            GPIOC
+#define DISCOVERY_I2Cx_SDA_GPIO_PORT            GPIOC_STM
 
 /* Definition for IOE I2Cx's NVIC */
 #define DISCOVERY_I2Cx_EV_IRQn                  I2C3_EV_IRQn
@@ -186,7 +186,7 @@ typedef enum
 /*############################### SPIx #######################################*/
 #define DISCOVERY_SPIx                          SPI5
 #define DISCOVERY_SPIx_CLK_ENABLE()             __HAL_RCC_SPI5_CLK_ENABLE()
-#define DISCOVERY_SPIx_GPIO_PORT                GPIOF                      /* GPIOF */
+#define DISCOVERY_SPIx_GPIO_PORT                GPIOF_STM                      /* GPIOF */
 #define DISCOVERY_SPIx_AF                       GPIO_AF5_SPI5
 #define DISCOVERY_SPIx_GPIO_CLK_ENABLE()        __HAL_RCC_GPIOF_CLK_ENABLE()
 #define DISCOVERY_SPIx_GPIO_CLK_DISABLE()       __HAL_RCC_GPIOF_CLK_DISABLE()
@@ -207,7 +207,7 @@ typedef enum
   */ 
 /* Definition for external IT for STMPE811 */
 #define STMPE811_INT_PIN                        GPIO_PIN_15
-#define STMPE811_INT_GPIO_PORT                  GPIOA
+#define STMPE811_INT_GPIO_PORT                  GPIOA_STM
 #define STMPE811_INT_CLK_ENABLE()               __HAL_RCC_GPIOA_CLK_ENABLE()
 #define STMPE811_INT_CLK_DISABLE()              __HAL_RCC_GPIOA_CLK_DISABLE()
 #define STMPE811_INT_EXTI                       EXTI15_10_IRQn
@@ -230,7 +230,7 @@ typedef enum
   * @brief  LCD Control pin  
   */ 
 #define LCD_NCS_PIN                             GPIO_PIN_2
-#define LCD_NCS_GPIO_PORT                       GPIOC
+#define LCD_NCS_GPIO_PORT                       GPIOC_STM
 #define LCD_NCS_GPIO_CLK_ENABLE()               __HAL_RCC_GPIOC_CLK_ENABLE()
 #define LCD_NCS_GPIO_CLK_DISABLE()              __HAL_RCC_GPIOC_CLK_DISABLE()
 /**             
@@ -240,12 +240,12 @@ typedef enum
   * @brief  LCD Command/data pin  
   */
 #define LCD_WRX_PIN                             GPIO_PIN_13
-#define LCD_WRX_GPIO_PORT                       GPIOD
+#define LCD_WRX_GPIO_PORT                       GPIOD_STM
 #define LCD_WRX_GPIO_CLK_ENABLE()               __HAL_RCC_GPIOD_CLK_ENABLE()
 #define LCD_WRX_GPIO_CLK_DISABLE()              __HAL_RCC_GPIOD_CLK_DISABLE()
   
 #define LCD_RDX_PIN                             GPIO_PIN_12
-#define LCD_RDX_GPIO_PORT                       GPIOD
+#define LCD_RDX_GPIO_PORT                       GPIOD_STM
 #define LCD_RDX_GPIO_CLK_ENABLE()               __HAL_RCC_GPIOD_CLK_ENABLE()
 #define LCD_RDX_GPIO_CLK_DISABLE()              __HAL_RCC_GPIOD_CLK_DISABLE()
 
@@ -265,13 +265,13 @@ typedef enum
   * @brief  GYROSCOPE SPI Interface pins
   */
 #define GYRO_CS_PIN                             GPIO_PIN_1                  /* PC.01 */
-#define GYRO_CS_GPIO_PORT                       GPIOC                       /* GPIOC */
+#define GYRO_CS_GPIO_PORT                       GPIOC_STM                       /* GPIOC */
 #define GYRO_CS_GPIO_CLK_ENABLE()               __HAL_RCC_GPIOC_CLK_ENABLE()
 #define GYRO_CS_GPIO_CLK_DISABLE()              __HAL_RCC_GPIOC_CLK_DISABLE()
 
 #define GYRO_INT_GPIO_CLK_ENABLE()              __HAL_RCC_GPIOA_CLK_ENABLE()
 #define GYRO_INT_GPIO_CLK_DISABLE()             __HAL_RCC_GPIOA_CLK_DISABLE()
-#define GYRO_INT_GPIO_PORT                      GPIOA                       /* GPIOA */
+#define GYRO_INT_GPIO_PORT                      GPIOA_STM                       /* GPIOA */
 #define GYRO_INT1_PIN                           GPIO_PIN_1                  /* PA.01 */
 #define GYRO_INT1_EXTI_IRQn                     EXTI1_IRQn 
 #define GYRO_INT2_PIN                           GPIO_PIN_2                  /* PA.02 */

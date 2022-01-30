@@ -48,7 +48,7 @@ void MX_DriverVbusHS(uint8_t state)
     data = GPIO_PIN_RESET;
   }
   /* USER CODE END PREPARE_GPIO_DATA_VBUS_HS */
-  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_4,(GPIO_PinState)data);
+  HAL_GPIO_WritePin(GPIOC_STM,GPIO_PIN_4,(GPIO_PinState)data);
 }
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

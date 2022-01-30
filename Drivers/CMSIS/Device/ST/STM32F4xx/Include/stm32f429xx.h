@@ -7,7 +7,7 @@
   *          This file contains:
   *           - Data structures and the address mapping for all peripherals
   *           - peripherals registers declarations and bits definition
-  *           - Macros to access peripheral’s registers hardware
+  *           - Macros to access peripheralвЂ™s registers hardware
   *
   ******************************************************************************
   * @attention
@@ -485,7 +485,7 @@ typedef struct
   __IO uint32_t RTSR;   /*!< EXTI Rising trigger selection register,  Address offset: 0x08 */
   __IO uint32_t FTSR;   /*!< EXTI Falling trigger selection register, Address offset: 0x0C */
   __IO uint32_t SWIER;  /*!< EXTI Software interrupt event register,  Address offset: 0x10 */
-  __IO uint32_t PR;     /*!< EXTI Pending register,                   Address offset: 0x14 */
+  __IO uint32_t PR_STM;     /*!< EXTI Pending register,                   Address offset: 0x14 */
 } EXTI_TypeDef;
 
 /** 
@@ -623,7 +623,7 @@ typedef struct
 typedef struct
 {
   __IO uint32_t KR;   /*!< IWDG Key register,       Address offset: 0x00 */
-  __IO uint32_t PR;   /*!< IWDG Prescaler register, Address offset: 0x04 */
+  __IO uint32_t PR_STM;   /*!< IWDG Prescaler register, Address offset: 0x04 */
   __IO uint32_t RLR;  /*!< IWDG Reload register,    Address offset: 0x08 */
   __IO uint32_t SR;   /*!< IWDG Status register,    Address offset: 0x0C */
 } IWDG_TypeDef;
@@ -1199,7 +1199,7 @@ typedef struct
 #define TIM12               ((TIM_TypeDef *) TIM12_BASE)
 #define TIM13               ((TIM_TypeDef *) TIM13_BASE)
 #define TIM14               ((TIM_TypeDef *) TIM14_BASE)
-#define RTC                 ((RTC_TypeDef *) RTC_BASE)
+#define RTC_STM             ((RTC_TypeDef *) RTC_BASE)
 #define WWDG                ((WWDG_TypeDef *) WWDG_BASE)
 #define IWDG                ((IWDG_TypeDef *) IWDG_BASE)
 #define I2S2ext             ((SPI_TypeDef *) I2S2ext_BASE)
@@ -1246,18 +1246,18 @@ typedef struct
 #define LTDC                ((LTDC_TypeDef *)LTDC_BASE)
 #define LTDC_Layer1         ((LTDC_Layer_TypeDef *)LTDC_Layer1_BASE)
 #define LTDC_Layer2         ((LTDC_Layer_TypeDef *)LTDC_Layer2_BASE)
-#define GPIOA               ((GPIO_TypeDef *) GPIOA_BASE)
-#define GPIOB               ((GPIO_TypeDef *) GPIOB_BASE)
-#define GPIOC               ((GPIO_TypeDef *) GPIOC_BASE)
-#define GPIOD               ((GPIO_TypeDef *) GPIOD_BASE)
-#define GPIOE               ((GPIO_TypeDef *) GPIOE_BASE)
-#define GPIOF               ((GPIO_TypeDef *) GPIOF_BASE)
+#define GPIOA_STM           ((GPIO_TypeDef *) GPIOA_BASE)
+#define GPIOB_STM              ((GPIO_TypeDef *) GPIOB_BASE)
+#define GPIOC_STM               ((GPIO_TypeDef *) GPIOC_BASE)
+#define GPIOD_STM               ((GPIO_TypeDef *) GPIOD_BASE)
+#define GPIOE_STM               ((GPIO_TypeDef *) GPIOE_BASE)
+#define GPIOF_STM               ((GPIO_TypeDef *) GPIOF_BASE)
 #define GPIOG               ((GPIO_TypeDef *) GPIOG_BASE)
 #define GPIOH               ((GPIO_TypeDef *) GPIOH_BASE)
 #define GPIOI               ((GPIO_TypeDef *) GPIOI_BASE)
 #define GPIOJ               ((GPIO_TypeDef *) GPIOJ_BASE)
 #define GPIOK               ((GPIO_TypeDef *) GPIOK_BASE)
-#define CRC                 ((CRC_TypeDef *) CRC_BASE)
+#define CRC_STM                 ((CRC_TypeDef *) CRC_BASE)
 #define RCC                 ((RCC_TypeDef *) RCC_BASE)
 #define FLASH               ((FLASH_TypeDef *) FLASH_R_BASE)
 #define DMA1                ((DMA_TypeDef *) DMA1_BASE)
