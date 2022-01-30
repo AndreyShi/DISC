@@ -19,7 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 //#include "../code/main.h"
-#include "main.h"
+#include "main_stm.h"
 #include "cmsis_os.h"
 #include "usb_host.h"
 #include "usb_host.h"

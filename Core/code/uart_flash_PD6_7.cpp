@@ -427,8 +427,9 @@ static enum FLASH_fifo answer_flash ;
 		return BRIDGE;
 	} else { //06.10.2016 it is place for error's service
 
-         if (answer_flash == TRANSMITER_TIMEOUT_WHEN_FRAME_IS_READ)
+         if (answer_flash == TRANSMITER_TIMEOUT_WHEN_FRAME_IS_READ){
           return answer_flash;
+         }
           switch(answer){
 			case FIRST_BYTE_ERROR: answer_flash = FIRST_BYTE_ERROR_;break;
 			case LENGTH_STREAM_BUFFER_OVERFLOW: answer_flash = LENGTH_STREAM_BUFFER_OVERFLOW_;break;
