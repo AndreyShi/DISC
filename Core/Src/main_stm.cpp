@@ -131,7 +131,7 @@ int main(void)
   put_digit_large(i, 10, 10,BLACK, WHITE);
   HAL_Delay(1500);
   }
-  //main_t();
+  main_t();
   //put_button_pic(0, 10, 10,BLACK, WHITE);//+
   //for(int i = 0 ; i <256;i++){
   //put_char('д', 10, 10,BLACK, WHITE);//+
