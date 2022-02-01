@@ -10,6 +10,7 @@ public:
 	void print_symbols_local_RA(char symbol,int number,unsigned char page,unsigned int x_, unsigned char y_);
 	void print_ram_local( char * str, unsigned char page,unsigned int x, unsigned char y);
 	void print_ram_local_RA( char * str, unsigned char page,unsigned int x, unsigned char y);
+	void put_char_local(char symbol, char page,unsigned int *x_local,unsigned char *y_local);
 	void clear_ram(unsigned char data,unsigned char page);
 };
 extern CDispRGB display;

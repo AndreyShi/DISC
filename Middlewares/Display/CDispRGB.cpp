@@ -32,16 +32,57 @@ void CDispRGB::print_flash_local( const char * str , unsigned char page,unsigned
 }
 
 void CDispRGB::print_symbols_local(char symbol,int number,unsigned char page,unsigned int x_, unsigned char y_){
+	if (number<=0)return;
 
+	x_=x_*8;
+
+	do{
+		put_char_local(symbol,page,&x_,&y_);
+		x_=x_+8;
+		number--;
+	}while(number != 0);
 };
 void CDispRGB::print_symbols_local_RA(char symbol,int number,unsigned char page,unsigned int x_, unsigned char y_){
+	if (number<=0)return;
 
+	x_=x_*8;
+
+	do{
+		put_char_local(symbol,page,&x_,&y_);
+		x_=x_-8;
+		number--;
+	}while(number != 0);
 };
 void CDispRGB::print_ram_local( char * str, unsigned char page,unsigned int x, unsigned char y){
+	unsigned char j = 0;
 
+	x=x*8;
+
+		do{
+			put_char_local(str[j],page,&x,&y);
+			x= x + 8;
+		}while(str[++j] != '\0');
 };
 void CDispRGB::print_ram_local_RA( char * str, unsigned char page,unsigned int x, unsigned char y){
 
+	unsigned char j = 0;
+	x=x*8;
+	signed char n = display.strnlen_lir((char*)str) - 1;
+	char tmp;
+	for (int i = 0; n > i; i++, n--) {
+		tmp = str[i];
+		str[i] = str[n];
+		str[n] = tmp;
+	}
+
+	do{
+		put_char_local(str[j],page,&x,&y);
+		x=x-8;
+	}while(str[++j] != '\0');
+
+};
+void CDispRGB::put_char_local(char symbol, char page,unsigned int *x_local,unsigned char *y_local){
+	::put_char(symbol, *x_local, *y_local,BLACK,WHITE);
 };
 void CDispRGB::clear_ram(unsigned char data,unsigned char page){
 	ILI9341_FillScreen(WHITE);
