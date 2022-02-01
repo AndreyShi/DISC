@@ -1,8 +1,8 @@
-п»ї/*
+/*
  * DigitBig.h
  *
  * Created: 15.06.2017 9:02:51
- *  Author: РђРЅРґСЂРµР№
+ *  Author: Андрей
  */ 
 
 
@@ -1296,7 +1296,7 @@ const unsigned char _new_0[][120] PROGMEM= {{
 	0x00     /*  ........  */
 }};
 //#pragma GCC pop_options
-/*РїСЂРѕР±РµР»*/
+/*пробел*/
 const unsigned char _white_space[120] PROGMEM= {0};
 /* Element mines*/
 const unsigned char _new_mines[120] PROGMEM=
@@ -1616,7 +1616,7 @@ const unsigned char _new_minute[40] PROGMEM=
 	0x00,    /*  ........  */
 	0x00,    /*  ........  */
 };
-/*Р”РІРѕРµС‚РѕС‡РёРµ*/
+/*Двоеточие*/
 const unsigned char _new_colon[40] PROGMEM = {
 0x00,    /*  ........  */
 0x00,    /*  ........  */

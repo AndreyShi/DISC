@@ -2,7 +2,7 @@
  * uart_flash_PD6_7.h
  *
  * Created: 14.06.2017 16:16:43
- *  Author: Андрей
+ *  Author: јндрей
  */ 
 
 #ifndef UART_FLASH_PD6_7_H_
@@ -25,7 +25,7 @@ extern void delay_ms(long d);
 class CUART_usb{
 	public:
 	unsigned char addr_page;
-	uint16_t n; //кол-во принятых байт за одну сессию
+	uint16_t n; //кол-во прин¤тых байт за одну сессию
 	enum Take_byte_answer{
 		START_LINK_USB=(unsigned char)0x00,
 		FIRST_BYTE_ERROR=(unsigned char)0x01,

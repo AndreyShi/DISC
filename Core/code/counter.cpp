@@ -10,12 +10,12 @@ long CCounters::run_luft_new(long delta_luft,const int &ch)
 {
 	mLuft[ch].luft += delta_luft;
 	if(mLuft[ch].fsm_luft == CLUFT::CHECK_LEFT){
-		if(mLuft[ch].luft >= mLuft[ch].last_before_rev){ //выход из люфта если достигли значения входа в люфт
+		if(mLuft[ch].luft >= mLuft[ch].last_before_rev){ //выход из люфта если достигли значени¤ входа в люфт
 			delta_luft=mLuft[ch].luft-mLuft[ch].last_before_rev;
 			mLuft[ch].fsm_luft = CLUFT::NO_LUFT;
 			return delta_luft;
 		}
-		else if (mLuft[ch].luft<=mLuft[ch].approach){ //выход из люфта если достигли значения выхода из люфта
+		else if (mLuft[ch].luft<=mLuft[ch].approach){ //выход из люфта если достигли значени¤ выхода из люфта
 			delta_luft=mLuft[ch].luft-mLuft[ch].approach;
 			mLuft[ch].fsm_luft = CLUFT::NO_LUFT;
 			return delta_luft;
@@ -23,12 +23,12 @@ long CCounters::run_luft_new(long delta_luft,const int &ch)
 	}
 	//here is CHECK_RIGHT
 	if(mLuft[ch].fsm_luft == CLUFT::CHECK_RIGHT){
-		if(mLuft[ch].luft <= mLuft[ch].last_before_rev){//выход из люфта если достигли значения входа в люфт
+		if(mLuft[ch].luft <= mLuft[ch].last_before_rev){//выход из люфта если достигли значени¤ входа в люфт
 			delta_luft=mLuft[ch].luft-mLuft[ch].last_before_rev;
 			mLuft[ch].fsm_luft = CLUFT::NO_LUFT;
 			return delta_luft;
 		}
-		else if (mLuft[ch].luft>=mLuft[ch].approach){//выход из люфта если достигли значения выхода из люфта
+		else if (mLuft[ch].luft>=mLuft[ch].approach){//выход из люфта если достигли значени¤ выхода из люфта
 			delta_luft=mLuft[ch].luft-mLuft[ch].approach;
 			mLuft[ch].fsm_luft = CLUFT::NO_LUFT;
 			return delta_luft;
@@ -148,7 +148,7 @@ void CCounters::do_circle_counters(bool correction_is_made,uint8_t ch)
 	#endif
 
 
-	//для коррекции нужны координаты с преобразованием
+	//дл¤ коррекции нужны координаты с преобразованием
 
 	/*if(mCounter[ch].abs_pure>mCounter[ch].max_value)
 		mCounter[ch].abs_pure=mCounter[ch].abs_pure-mCounter[ch].max_value;
@@ -200,7 +200,7 @@ long CCounters::read_cnt(long *incoming,const int &ch)
 	//if angle with or without backlash it takes 71-73 mks.
 	#if (configUSE_ABS_Encoder == 1)
 	if(Lir.abs_ENC[ch]){
-		long abs_err =  Lir.plb2ll(flash_prg.axis_cfg2[ch].bit_enc) - 1; //для 24 бит  16777215 - означает ошибка
+		long abs_err =  Lir.plb2ll(flash_prg.axis_cfg2[ch].bit_enc) - 1; //дл¤ 24 бит  16777215 - означает ошибка
 		if(mCounter[ch].hw_cnt_prev == abs_err && *incoming != abs_err)
 			mCounter[ch].hw_cnt_cur = 0;
 		if(*incoming == abs_err)
@@ -244,7 +244,7 @@ long CCounters::read_cnt(long *incoming,const int &ch)
 		prev = prev + 16777216;
 	}
 
-	mCounter[ch].delta = cur - prev; //если дельта меньше 0 то едем влево , если больше нуля то вправо
+	mCounter[ch].delta = cur - prev; //если дельта меньше 0 то едем влево , если больше нул¤ то вправо
 	//==new
 	if(flash_prg.axis_cfg[ch].direction == CPrg::DIRECTION::MINES)
 		mCounter[ch].delta = -mCounter[ch].delta;
@@ -289,7 +289,7 @@ long CCounters::read_cnt(long *incoming,const int &ch)
 			do_circle_counters(correction_is_made,ch);
 		correction_is_made = to_do_correction_in_realtime_ch(ch);	
 		//if(correction_is_made) отключил чтоб не моргала скорость
-		//	mCounter[ch].delta = mCounter[ch].delta_corr; // приращения и в относительной тоже
+		//	mCounter[ch].delta = mCounter[ch].delta_corr; // приращени¤ и в относительной тоже
 		if (mCounter[ch].increment_0_360_one_turn == 0){
 			if(Lir.is_corr(ch) == 0){   //correction_is_made == 0
 				mCounter[ch].abs  = mCounter[ch].abs_pure;
@@ -317,9 +317,9 @@ long CCounters::read_cnt(long *incoming,const int &ch)
 
 
 /*
-определяет направление счета
+определ¤ет направление счета
 при не равномерном движении или медленном движении DIRECTION_CNT_RIGHT/DIRECTION_CNT_LEFT
-будет черодоваться с NO_DIRECTION, возникает проблема определения : датчик стоит или медленно двигается?
+будет черодоватьс¤ с NO_DIRECTION, возникает проблема определени¤ : датчик стоит или медленно двигаетс¤?
 */
 CCNT_SENSOR::DIRECTION_CNT CCNT_SENSOR::get_dir()
 {
@@ -332,7 +332,7 @@ CCNT_SENSOR::DIRECTION_CNT CCNT_SENSOR::get_dir()
 }
 /*
 обнуление счетчиков по приходу реф метки
-обнуляются abs и ref только одновременно
+обнул¤ютс¤ abs и ref только одновременно
 */
 void CCNT_SENSOR::ref_reset()
 {

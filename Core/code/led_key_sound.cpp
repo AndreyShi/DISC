@@ -1,8 +1,8 @@
-п»ї/*
+/*
  * led_key_sound.cpp
  *
  * Created: 15.06.2017 9:30:52
- *  Author: РђРЅРґСЂРµР№
+ *  Author: Андрей
  */ 
 
 //#define F_CPU 100000UL   // 100 kHz
@@ -982,7 +982,7 @@ void Cled_key_sound::convertBCDtoASCII(unsigned char bcd, char * ascii)
 }
 
 void Cled_key_sound::day_and_month_string(unsigned char *incoming,char *output){
-	//20 РЅРѕСЏР±СЂСЏ 2017
+	//20 ноября 2017
 	//unsigned char day=l_k_s.real_time_to_see[3];
 	//unsigned char month=l_k_s.real_time_to_see[4];
 	//  unsigned char month=l_k_s.real_time_to_see[6]&0x1f;
@@ -997,9 +997,9 @@ void Cled_key_sound::day_and_month_string(unsigned char *incoming,char *output){
 	output[5]=0x0;
 }
 /*
-PCF8583 RAM size 256 Р±Р°Р№С‚
-0x00 - 0x0F Р·Р°СЂРµР·РµСЂРІРёСЂРѕРІР°РЅС‹ СЃР°РјРёРј С‡РёРїРѕРј
-0x10 - 0xFF РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+PCF8583 RAM size 256 байт
+0x00 - 0x0F зарезервированы самим чипом
+0x10 - 0xFF для пользователя
 */
 void  Cled_key_sound::read_RAM_PCF8583(void){
 	l_k_s.to_read_counters_from_realtime((unsigned char *)&l_k_s.r_t_save_rel,0x10,16);
