@@ -87,3 +87,61 @@ void CDispRGB::put_char_local(char symbol, char page,unsigned int *x_local,unsig
 void CDispRGB::clear_ram(unsigned char data,unsigned char page){
 	ILI9341_FillScreen(WHITE);
 };
+
+
+
+void CDispRGB::put_button_(unsigned int x,unsigned char y, unsigned char npic){
+	if((BUTTON_PIC)npic == _pic_EMPTY) {
+			clear_button_(x,y);
+		}
+		else{
+			//put_button_(x,y); // кладется рамка стирая все внутри рамки
+			//put_button_pic_(x,y,(BUTTON_PIC)npic); // поверх кладется иконка, (получается мерцание если закцилено)
+			put_button_with_pic(x,y,(BUTTON_PIC)npic);
+		}
+};
+
+
+void CDispRGB::clear_button_(unsigned int x,unsigned char y){
+	::ILI9341_DrawRectangle(x, y, 40, 40, WHITE);
+};
+
+void CDispRGB::put_button_(unsigned int x,unsigned char y){
+	::put_button(x, y * 8,BLACK,WHITE);
+};
+
+void CDispRGB::put_button_pic_(unsigned int x,unsigned char y,BUTTON_PIC npic){
+	::put_button_pic(npic, x + 4 , y * 8 + 8,BLACK,WHITE);
+};
+
+void CDispRGB::put_button_with_pic(unsigned int x,unsigned char y,BUTTON_PIC npic){
+	::put_button_with_pic(x,y * 8,npic,BLACK,WHITE);
+};
+
+void CDispRGB::clear_rectangle(unsigned int x,unsigned char y,unsigned int l,unsigned char h,unsigned char data,unsigned char page ){
+	//::ILI9341_DrawRectangle(x, y, l, h, GREEN);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

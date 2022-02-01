@@ -780,6 +780,42 @@ void put_button_pic(int pic, short X, short Y,uint16_t color, uint16_t bgcolor)
 	}
 }
 
+void put_button_with_pic(unsigned int X,unsigned char Y,int npic,uint16_t color, uint16_t bgcolor){
+
+
+
+
+	union MyUnion
+			{
+				char c[200];
+				long l[50];
+				uint32_t lu[50];
+			}s;
+		char string_0[200];
+		memcpy(string_0, button, 200); // копирование из  flash в RAM рамки
+
+		for(int byte = 0,offset = 0 ; byte < 96; byte += 32,offset += 40)// копирование из  flash в RAM значка
+			memcpy(string_0 + 44 + offset, button_pic[npic] + byte, 32);
+
+
+		conv_lcd(s.c, (unsigned char*)string_0, 40, 40, 200);
+
+
+		ILI9341_DrawRectangle(X, Y, 40, 40, bgcolor);
+			for (int y = 0; y < 40; y++) {
+				for (int d = 0; d < 5; d++) {
+					for (int x = 0; x < 8; x++) {
+						//SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), COORD{ X + (short)x + (8 * (short)d),Y + (short)y });
+						if (s.c[d + (y * 5)] & (1 << x))
+							ILI9341_DrawPixel(X + (short)x + (8 * (short)d), Y + y, color);
+							//std::cout << '#';//char(219);
+						//else
+							//std::cout << '_';
+					}
+				}
+			}
+}
+
 void put_digit_big(int digit, short X, short Y,uint16_t color, uint16_t bgcolor)
 {
 	union MyUnion

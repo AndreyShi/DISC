@@ -12,6 +12,14 @@ public:
 	void print_ram_local_RA( char * str, unsigned char page,unsigned int x, unsigned char y);
 	void put_char_local(char symbol, char page,unsigned int *x_local,unsigned char *y_local);
 	void clear_ram(unsigned char data,unsigned char page);
+
+
+	void put_button_(unsigned int x,unsigned char y, unsigned char npic);
+	void clear_button_(unsigned int x,unsigned char y);
+	void put_button_(unsigned int x,unsigned char y);
+	void put_button_pic_(unsigned int x,unsigned char y,BUTTON_PIC npic);
+	void put_button_with_pic(unsigned int x,unsigned char y,BUTTON_PIC npic);
+	void clear_rectangle(unsigned int x,unsigned char y,unsigned int l,unsigned char h,unsigned char data,unsigned char page );
 };
 extern CDispRGB display;
 

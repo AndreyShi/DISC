@@ -45,6 +45,7 @@
 #endif 
 
 /* Includes ------------------------------------------------------------------*/
+#include <memory.h>
 #include "lcd.h"
 #include "../Board/stm32f429i_discovery.h"
  extern void SPIx_Write(uint16_t Value);
@@ -269,6 +270,7 @@ void conv_lcd(char* out, unsigned char* in, short width_px, short height_px, sho
 void put_char(unsigned char c, short X, short Y,uint16_t color, uint16_t bgcolor);
 void put_button(short X, short Y,uint16_t color, uint16_t bgcolor);
 void put_button_pic(int pic, short X, short Y,uint16_t color, uint16_t bgcolor);
+void put_button_with_pic(unsigned int x,unsigned char y,int npic,uint16_t color, uint16_t bgcolor);
 void put_digit_big(int digit, short X, short Y,uint16_t color, uint16_t bgcolor);
 void put_digit_large(int digit, short X, short Y,uint16_t color, uint16_t bgcolor);
 void put_axis_big(int axis, short X, short Y,uint16_t color, uint16_t bgcolor);
