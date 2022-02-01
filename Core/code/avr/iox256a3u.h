@@ -2881,72 +2881,137 @@ typedef struct OCD_struct
 IO Module Instances. Mapped to memory.
 ==========================================================================
 */
+extern VPORT_t vport0;/* Virtual Port */
+extern VPORT_t vport1;/* Virtual Port */
+extern VPORT_t vport2; /* Virtual Port */
+extern VPORT_t vport3; /* Virtual Port */
+extern OCD_t ocd; /* On-Chip Debug System */
+extern CLK_t clk; /* Clock System */
+extern SLEEP_t sleep; /* Sleep Controller */
+extern OSC_t osc; /* Oscillator */
+extern DFLL_t dfllrc32m; /* DFLL */
+extern DFLL_t dfllrc2m; /* DFLL */
+extern PR_t pr; /* Power Reduction */
+extern RST_t rst; /* Reset */
+extern WDT_t wdt; /* Watch-Dog Timer */
+extern MCU_t mcu; /* MCU Control */
+extern PMIC_t pmic; /* Programmable Multi-level Interrupt Controller */
+extern PORTCFG_t portcfg; /* I/O port Configuration */
+extern AES_t aes; /* AES Module */
+extern CRC_t crc; /* Cyclic Redundancy Checker */
+extern DMA_t dma; /* DMA Controller */
+extern EVSYS_t evsys; /* Event System */
+extern NVM_t nvw; /* Non-volatile Memory Controller */
+extern ADC_t adca; /* Analog-to-Digital Converter */
+extern ADC_t adcb; /* Analog-to-Digital Converter */
+extern DAC_t dacb; /* Digital-to-Analog Converter */
+extern AC_t aca; /* Analog Comparator */
+extern AC_t acb; /* Analog Comparator */
+extern RTC_t rtc; /* Real-Time Counter */
+extern TWI_t twic; /* Two-Wire Interface */
+extern TWI_t twie; /* Two-Wire Interface */
+extern USB_t usb; /* Universal Serial Bus */
+extern PORT_t porta; /* I/O Ports */
+extern PORT_t portb; /* I/O Ports */
+extern PORT_t portc; /* I/O Ports */
+extern PORT_t portd; /* I/O Ports */
+extern PORT_t porte; /* I/O Ports */
+extern PORT_t portf; /* I/O Ports */
+extern PORT_t portr; /* I/O Ports */
+extern TC0_t tcc0; /* 16-bit Timer/Counter 0 */
+extern TC2_t tcc2; /* 16-bit Timer/Counter type 2 */
+extern TC1_t tcc1; /* 16-bit Timer/Counter 1 */
+extern AWEX_t awexc; /* Advanced Waveform Extension */
+extern HIRES_t hiresc; /* High-Resolution Extension */
+extern USART_t usartc0; /* Universal Synchronous/Asynchronous Receiver/Transmitter */
+extern USART_t usartc1; /* Universal Synchronous/Asynchronous Receiver/Transmitter */
+extern SPI_t spic; /* Serial Peripheral Interface */
+extern IRCOM_t ircom; /* IR Communication Module */
+extern TC0_t tcd0; /* 16-bit Timer/Counter 0 */
+extern TC2_t tcd2; /* 16-bit Timer/Counter type 2 */
+extern TC1_t tcd1; /* 16-bit Timer/Counter 1 */
+extern HIRES_t hiresd; /* High-Resolution Extension */
+extern USART_t usartd0; /* Universal Synchronous/Asynchronous Receiver/Transmitter */
+extern USART_t usartd1; /* Universal Synchronous/Asynchronous Receiver/Transmitter */
+extern SPI_t spid; /* Serial Peripheral Interface */
+extern TC0_t tce0; /* 16-bit Timer/Counter 0 */
+extern TC2_t tce2; /* 16-bit Timer/Counter type 2 */
+extern TC1_t tce1; /* 16-bit Timer/Counter 1 */
+extern AWEX_t awexe; /* Advanced Waveform Extension */
+extern HIRES_t hirese; /* High-Resolution Extension */
+extern USART_t usarte0; /* Universal Synchronous/Asynchronous Receiver/Transmitter */
+extern USART_t usarte1; /* Universal Synchronous/Asynchronous Receiver/Transmitter */
+extern SPI_t spie; /* Serial Peripheral Interface */
+extern TC0_t tcf0; /* 16-bit Timer/Counter 0 */
+extern TC2_t tcf2; /* 16-bit Timer/Counter type 2 */
+extern HIRES_t hiresf; /* High-Resolution Extension */
+extern USART_t usartf0; /* Universal Synchronous/Asynchronous Receiver/Transmitter */
 
-#define VPORT0              (*(VPORT_t *) 0x0010) /* Virtual Port */
-#define VPORT1              (*(VPORT_t *) 0x0014) /* Virtual Port */
-#define VPORT2              (*(VPORT_t *) 0x0018) /* Virtual Port */
-#define VPORT3              (*(VPORT_t *) 0x001C) /* Virtual Port */
-#define OCD                   (*(OCD_t *) 0x002E) /* On-Chip Debug System */
-#define CLK                   (*(CLK_t *) 0x0040) /* Clock System */
-#define SLEEP               (*(SLEEP_t *) 0x0048) /* Sleep Controller */
-#define OSC                   (*(OSC_t *) 0x0050) /* Oscillator */
-#define DFLLRC32M            (*(DFLL_t *) 0x0060) /* DFLL */
-#define DFLLRC2M             (*(DFLL_t *) 0x0068) /* DFLL */
-#define PR                     (*(PR_t *) 0x0070) /* Power Reduction */
-#define RST                   (*(RST_t *) 0x0078) /* Reset */
-#define WDT                   (*(WDT_t *) 0x0080) /* Watch-Dog Timer */
-#define MCU                   (*(MCU_t *) 0x0090) /* MCU Control */
-#define PMIC                 (*(PMIC_t *) 0x00A0) /* Programmable Multi-level Interrupt Controller */
-#define PORTCFG           (*(PORTCFG_t *) 0x00B0) /* I/O port Configuration */
-#define AES                   (*(AES_t *) 0x00C0) /* AES Module */
-#define CRC                   (*(CRC_t *) 0x00D0) /* Cyclic Redundancy Checker */
-#define DMA                   (*(DMA_t *) 0x0100) /* DMA Controller */
-#define EVSYS               (*(EVSYS_t *) 0x0180) /* Event System */
-#define NVM                   (*(NVM_t *) 0x01C0) /* Non-volatile Memory Controller */
-#define ADCA                  (*(ADC_t *) 0x0200) /* Analog-to-Digital Converter */
-#define ADCB                  (*(ADC_t *) 0x0240) /* Analog-to-Digital Converter */
-#define DACB                  (*(DAC_t *) 0x0320) /* Digital-to-Analog Converter */
-#define ACA                    (*(AC_t *) 0x0380) /* Analog Comparator */
-#define ACB                    (*(AC_t *) 0x0390) /* Analog Comparator */
-#define RTC                   (*(RTC_t *) 0x0400) /* Real-Time Counter */
-#define TWIC                  (*(TWI_t *) 0x0480) /* Two-Wire Interface */
-#define TWIE                  (*(TWI_t *) 0x04A0) /* Two-Wire Interface */
-#define USB                   (*(USB_t *) 0x04C0) /* Universal Serial Bus */
-#define PORTA                (*(PORT_t *) 0x0600) /* I/O Ports */
-#define PORTB                (*(PORT_t *) 0x0620) /* I/O Ports */
-#define PORTC                (*(PORT_t *) 0x0640) /* I/O Ports */
-#define PORTD                (*(PORT_t *) 0x0660) /* I/O Ports */
-#define PORTE                (*(PORT_t *) 0x0680) /* I/O Ports */
-#define PORTF                (*(PORT_t *) 0x06A0) /* I/O Ports */
-#define PORTR                (*(PORT_t *) 0x07E0) /* I/O Ports */
-#define TCC0                  (*(TC0_t *) 0x0800) /* 16-bit Timer/Counter 0 */
-#define TCC2                  (*(TC2_t *) 0x0800) /* 16-bit Timer/Counter type 2 */
-#define TCC1                  (*(TC1_t *) 0x0840) /* 16-bit Timer/Counter 1 */
-#define AWEXC                (*(AWEX_t *) 0x0880) /* Advanced Waveform Extension */
-#define HIRESC              (*(HIRES_t *) 0x0890) /* High-Resolution Extension */
-#define USARTC0             (*(USART_t *) 0x08A0) /* Universal Synchronous/Asynchronous Receiver/Transmitter */
-#define USARTC1             (*(USART_t *) 0x08B0) /* Universal Synchronous/Asynchronous Receiver/Transmitter */
-#define SPIC                  (*(SPI_t *) 0x08C0) /* Serial Peripheral Interface */
-#define IRCOM               (*(IRCOM_t *) 0x08F8) /* IR Communication Module */
-#define TCD0                  (*(TC0_t *) 0x0900) /* 16-bit Timer/Counter 0 */
-#define TCD2                  (*(TC2_t *) 0x0900) /* 16-bit Timer/Counter type 2 */
-#define TCD1                  (*(TC1_t *) 0x0940) /* 16-bit Timer/Counter 1 */
-#define HIRESD              (*(HIRES_t *) 0x0990) /* High-Resolution Extension */
-#define USARTD0             (*(USART_t *) 0x09A0) /* Universal Synchronous/Asynchronous Receiver/Transmitter */
-#define USARTD1             (*(USART_t *) 0x09B0) /* Universal Synchronous/Asynchronous Receiver/Transmitter */
-#define SPID                  (*(SPI_t *) 0x09C0) /* Serial Peripheral Interface */
-#define TCE0                  (*(TC0_t *) 0x0A00) /* 16-bit Timer/Counter 0 */
-#define TCE2                  (*(TC2_t *) 0x0A00) /* 16-bit Timer/Counter type 2 */
-#define TCE1                  (*(TC1_t *) 0x0A40) /* 16-bit Timer/Counter 1 */
-#define AWEXE                (*(AWEX_t *) 0x0A80) /* Advanced Waveform Extension */
-#define HIRESE              (*(HIRES_t *) 0x0A90) /* High-Resolution Extension */
-#define USARTE0             (*(USART_t *) 0x0AA0) /* Universal Synchronous/Asynchronous Receiver/Transmitter */
-#define USARTE1             (*(USART_t *) 0x0AB0) /* Universal Synchronous/Asynchronous Receiver/Transmitter */
-#define SPIE                  (*(SPI_t *) 0x0AC0) /* Serial Peripheral Interface */
-#define TCF0                  (*(TC0_t *) 0x0B00) /* 16-bit Timer/Counter 0 */
-#define TCF2                  (*(TC2_t *) 0x0B00) /* 16-bit Timer/Counter type 2 */
-#define HIRESF              (*(HIRES_t *) 0x0B90) /* High-Resolution Extension */
-#define USARTF0             (*(USART_t *) 0x0BA0) /* Universal Synchronous/Asynchronous Receiver/Transmitter */
+#define VPORT0              vport0/* Virtual Port */
+#define VPORT1              vport1/* Virtual Port */
+#define VPORT2              vport2 /* Virtual Port */
+#define VPORT3              vport3 /* Virtual Port */
+#define OCD                 ocd /* On-Chip Debug System */
+#define CLK                 clk /* Clock System */
+#define SLEEP               sleep /* Sleep Controller */
+#define OSC                 osc /* Oscillator */
+#define DFLLRC32M           dfllrc32m /* DFLL */
+#define DFLLRC2M            dfllrc2m /* DFLL */
+#define PR                  pr /* Power Reduction */
+#define RST                 rst /* Reset */
+#define WDT                 wdt /* Watch-Dog Timer */
+#define MCU                 mcu /* MCU Control */
+#define PMIC                pmic /* Programmable Multi-level Interrupt Controller */
+#define PORTCFG             portcfg /* I/O port Configuration */
+#define AES                 aes /* AES Module */
+#define CRC                 crc /* Cyclic Redundancy Checker */
+#define DMA                 dma /* DMA Controller */
+#define EVSYS               evsys /* Event System */
+#define NVM                 nvw /* Non-volatile Memory Controller */
+#define ADCA                adca /* Analog-to-Digital Converter */
+#define ADCB                adcb /* Analog-to-Digital Converter */
+#define DACB                dacb /* Digital-to-Analog Converter */
+#define ACA                 aca /* Analog Comparator */
+#define ACB                 acb /* Analog Comparator */
+#define RTC                 rtc /* Real-Time Counter */
+#define TWIC                twic /* Two-Wire Interface */
+#define TWIE                twie /* Two-Wire Interface */
+#define USB                 usb /* Universal Serial Bus */
+#define PORTA               porta /* I/O Ports */
+#define PORTB               portb /* I/O Ports */
+#define PORTC               portc /* I/O Ports */
+#define PORTD               portd /* I/O Ports */
+#define PORTE               porte /* I/O Ports */
+#define PORTF               portf /* I/O Ports */
+#define PORTR               portr /* I/O Ports */
+#define TCC0                tcc0 /* 16-bit Timer/Counter 0 */
+#define TCC2                tcc2 /* 16-bit Timer/Counter type 2 */
+#define TCC1                tcc1 /* 16-bit Timer/Counter 1 */
+#define AWEXC               awexc /* Advanced Waveform Extension */
+#define HIRESC              hiresc /* High-Resolution Extension */
+#define USARTC0             usartc0 /* Universal Synchronous/Asynchronous Receiver/Transmitter */
+#define USARTC1             usartc1 /* Universal Synchronous/Asynchronous Receiver/Transmitter */
+#define SPIC                spic /* Serial Peripheral Interface */
+#define IRCOM               ircom /* IR Communication Module */
+#define TCD0                tcd0 /* 16-bit Timer/Counter 0 */
+#define TCD2                tcd2 /* 16-bit Timer/Counter type 2 */
+#define TCD1                tcd1 /* 16-bit Timer/Counter 1 */
+#define HIRESD              hiresd /* High-Resolution Extension */
+#define USARTD0             usartd0 /* Universal Synchronous/Asynchronous Receiver/Transmitter */
+#define USARTD1             usartd1 /* Universal Synchronous/Asynchronous Receiver/Transmitter */
+#define SPID                spid /* Serial Peripheral Interface */
+#define TCE0                tce0 /* 16-bit Timer/Counter 0 */
+#define TCE2                tce2 /* 16-bit Timer/Counter type 2 */
+#define TCE1                tce1 /* 16-bit Timer/Counter 1 */
+#define AWEXE               awexe /* Advanced Waveform Extension */
+#define HIRESE              hirese /* High-Resolution Extension */
+#define USARTE0             usarte0 /* Universal Synchronous/Asynchronous Receiver/Transmitter */
+#define USARTE1             usarte1 /* Universal Synchronous/Asynchronous Receiver/Transmitter */
+#define SPIE                spie /* Serial Peripheral Interface */
+#define TCF0                tcf0 /* 16-bit Timer/Counter 0 */
+#define TCF2                tcf2 /* 16-bit Timer/Counter type 2 */
+#define HIRESF              hiresf /* High-Resolution Extension */
+#define USARTF0             usartf0 /* Universal Synchronous/Asynchronous Receiver/Transmitter */
 
 #endif /* !defined (__ASSEMBLER__) */
 

@@ -8,6 +8,9 @@ public:
 	void print_flash_local( const char * str , unsigned char page,unsigned int x, unsigned char y,char align = 0){
 		::put_char('K',x, y,BLACK,WHITE);
 	};
+	void clear_ram(unsigned char data,unsigned char page){
+		ILI9341_FillScreen(WHITE);
+	}
 };
 extern CDispRGB display;
 

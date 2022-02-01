@@ -1,4 +1,4 @@
-//заглушки
+//Р·Р°РіР»СѓС€РєРё
 #define PROGMEM
 #define PSTR(x) x
 #define PGM_P const char *
@@ -13,4 +13,4 @@
 #define strcmp_P(x,y) 1
 
 #define __malloc_heap_start (char*)1
-#define __malloc_heap_end (char*)2
+#define __malloc_heap_end (char*)0x5fff

@@ -128,10 +128,13 @@ int main(void)
   ILI9341_SetRotation(SCREEN_HORIZONTAL_2);
   for(int8_t i = 0 ; i < 10;i++){
   //put_digit_big(i, 10, 10,BLACK, WHITE);
-  put_digit_large(i, 10+ i *10, 10,BLACK, WHITE);
-  HAL_Delay(1500);
+  put_digit_large(i, 10, 10,BLACK, WHITE);
+  HAL_Delay(1);
   }
-  //main_t();
+
+  OSC.STATUS = 0xff;
+  init.to_see_enigma = 4;
+  main_t();
   //put_button_pic(0, 10, 10,BLACK, WHITE);//+
   //for(int i = 0 ; i <256;i++){
   //put_char('д', 10, 10,BLACK, WHITE);//+
