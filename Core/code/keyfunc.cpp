@@ -44,7 +44,7 @@ void TMsgKey::apply()
 		if(MsgKey.tracer_real == TMsgKey::CMD_CNTRL && Lir.curItem->id == idHand){
 			if(Lir.outM5_delay()){
 				Lir.entry_hand = Menu::INIT;
-				return;	//если шпиндель остановили, то обработка кнопки стоп завершается			
+				return;	//если шпиндель остановили, то обработка кнопки стоп завершается
 			}			
 		}
 	}
@@ -292,7 +292,7 @@ void TMsgKey::find_ref(void){
 			   #if (configUSE_NCshell == 1)
 			   && !Lir.if_vibor_ref()
 			   #endif
-			   )){return;} // проверка для поиска выбора направления реф 				
+			   )){return;} // проверка для поиска выбора направления реф
 			}
 			
 unsigned char n_ch;	
@@ -1159,7 +1159,7 @@ void TMsgKey::input_string_inside_begin_mode(void){
 void TMsgKey::to_do_inside_submode_for_mode_HAND(unsigned char n_string){
 
 	switch (tracer_real){
-		case SUBMODE_HAND::CMD_CNTRL://обработка кнопок в INPUTPARAM	
+		case SUBMODE_HAND::CMD_CNTRL://обработка кнопок в INPUTPARAM
 			break;
 		
 		case SUBMODE_HAND::DRIVE_CONTROL:
@@ -1281,7 +1281,7 @@ void TMsgKey::submode_to_see_half_or_full_inside_HAND(unsigned char s){
 	
 }
 /*
-функция для определения абсолютная/относительная ось и отношения номера строки к каналу 
+функция для определения абсолютная/относительная ось и отношения номера строки к каналу
 и последующего деления или умножения относительной оси
 in unsigned char n_string - номер строки
 */
@@ -1364,7 +1364,7 @@ void TMsgKey::read_counters_altera()
 	if(Lir.P2[3] != no_axis)
 		MsgKey.to_take_datas_from_channel_3();
 	//init.clr_B6();
-	//==считывание ошибок датчика 
+	//==считывание ошибок датчика
 	#if (configUSE_Alt_ENCerr  == 1)
 	er = altera.read_reg((CIOAltera::READ_ADR)31); 
 	#endif
@@ -2126,7 +2126,7 @@ void TMsgKey::to_see_MenuEncoders(void){
 			altera.counter_display[i]=altera.counter[i];
 			long tmp = display.speed_100[i];
 			sei();
-			tmp = (tmp*10)/4;  // получаем Гц 
+			tmp = (tmp*10)/4;  // получаем Гц
 
 			if(screen.interval_for_speed[i]==60)
 				tmp=tmp/6;
@@ -2139,7 +2139,7 @@ void TMsgKey::to_see_MenuEncoders(void){
 			
 			Lir.print_long_format(data,Lir.get_format_from_ch(i),0,11,16 *(i + 2),LEFT_ALIGN,0,11);			  //Индикация
 
-			if(display.encoder_fault_[i]){//Счетчик Altera				
+			if(display.encoder_fault_[i]){//Счетчик Altera
 				display.print_flash_local(sError,0,23,16 *(i + 2));
 				display.print_symbols_local(' ',3,0,29,16 *(i + 2));
 			}
@@ -2148,7 +2148,7 @@ void TMsgKey::to_see_MenuEncoders(void){
 
 			tmp = coeff.new_gap[i].binary;
 			coeff.mult(i,&tmp);
-			Lir.print_long_format(tmp,Lir.get_format_from_ch(i),0,32,16 *(i + 2),0,0,7);//Люфт	
+			Lir.print_long_format(tmp,Lir.get_format_from_ch(i),0,32,16 *(i + 2),0,0,7);//Люфт
 							 
 			if(screen.measure_chan[i]){
 				if(display.blinker&0x04)
@@ -2156,7 +2156,7 @@ void TMsgKey::to_see_MenuEncoders(void){
 				else
 					NORMAL_CHAR()
 			}
-			Lir.print_long_format(Lir.sz_refref[i],CPrg::FORMAT::FORMAT_END,0,23,16 *(i + 9),LEFT_ALIGN,0,10); //Реф - Реф 
+			Lir.print_long_format(Lir.sz_refref[i],CPrg::FORMAT::FORMAT_END,0,23,16 *(i + 9),LEFT_ALIGN,0,10); //Реф - Реф
 			NORMAL_CHAR()
 			}
 		}
@@ -2613,7 +2613,7 @@ void TMsgKey::submodes_ref_mode_are_executed(void){
 		screen.counter_ref_=ref_.ref_ref_count;
 		sei();
 		if(ref_.ref_ref_count >= 2){  // расстояние посчитано только если прошли как минимум две метки
-		//======считывание расстояния от метки до метки 
+		//======считывание расстояния от метки до метки
 			if(screen.measure_chan[0]){
 				screen.pulses_=altera.read_cnt_quick(5);
 				Lir.cur_ch_calc_2r2 = 0;
@@ -2702,8 +2702,8 @@ void TMsgKey::to_take_datas_from_channel_0(void){
 		sei();
 		}
 	sei();
-	altera.counter[0] = altera.read_cnt_quick(0);
-	//altera.counter[0] +=1;
+	//altera.counter[0] = altera.read_cnt_quick(0);
+	altera.counter[0] +=1;
 	pult_counters.read_cnt(&altera.counter[0],0);//Lir.read_cnt_simple(altera.counter_0,0);
 	if(dis_0 == true){ 
 		cli();

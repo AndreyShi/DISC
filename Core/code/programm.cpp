@@ -356,7 +356,7 @@ void CPrg::upload_flash_to_ram()
 		up_or_down=UPLOAD_FLASH_0_TO_RAM;
 		break;
 	}
-	Lir.corr_see_cur_ch = Lir.cnt_StrCh; //копируем в переменную 
+	Lir.corr_see_cur_ch = Lir.cnt_StrCh; //копируем в переменную
 	execute=EXEC::THIRD;
 	cli();timeout_to_go=0;
 	correction_must_be_done=true;
@@ -437,7 +437,7 @@ switch (k_c){
 	Lir.CurFormatM = flash_prg.axis_cfg[Lir.cnt_StrCh].format;
 	Lir.SET_C(idWorkCorr_Input);
 	break;
-	case _key_BLANK2_L: // Создание таблицы  Размер интервалов -> Кол - во интервалов 
+	case _key_BLANK2_L: // Создание таблицы  Размер интервалов -> Кол - во интервалов
 	Lir.WorkCorr_entry = SET_INTERVAL;
 	Lir.CurFormatM = flash_prg.axis_cfg[Lir.cnt_StrCh].format; 
 	Lir.SET_C(idWorkCorr_Input);  //входим в режим ввода с клавиатуры
@@ -694,7 +694,7 @@ display.print_flash_local(PSTR("     "),0,18,16*9);
 			coeff.mult(cur_see_ch,&tmp); //Lir.corr_see_cur_ch
 
 			Lir.print_long_format(tmp,Lir.get_format_from_ch(cur_see_ch),0,18,16*8); //Lir.corr_see_cur_ch			 
-		    display.print_debug_one_local_shot(set_point_plus,0,18,16*9,8); // Кол - во интервалов 
+		    display.print_debug_one_local_shot(set_point_plus,0,18,16*9,8); // Кол - во интервалов
 		 
 		 if(set_point_plus!=0) {
 				display.print_debug_one_local_shot(m+1,0,8,16,8);
@@ -818,7 +818,7 @@ if(Lir.update_table_corr || update_table_corr_two){
 					 }
 				// }
 			 }
-			// рабочий		 
+			// рабочий
 			rab = k_div * (m + 1);
 			//rab = rab * k_minus;
 			coeff.mult(cur_see_ch,&rab); //Lir.corr_see_cur_ch
@@ -885,7 +885,7 @@ if(Lir.update_table_corr || update_table_corr_two){
  	else 
 		display.print_flash_local(PSTR("-"),0,5,16);
 
-	display.print_ram_local(Lir.Str_Channel[Lir.cnt_StrCh],0,36,64);//Отображение в кнопке	
+	display.print_ram_local(Lir.Str_Channel[Lir.cnt_StrCh],0,36,64);//Отображение в кнопке
    
 //27.12.2018
 cli();
@@ -944,7 +944,7 @@ if(execute==EXEC::THIRD){
 
 	   switch(execute){
 	   case  EXEC::FIRST:{
-/*	   display.print_flash_local(PSTR("ВВОД"),0,35,128);break;  */    
+/*	   display.print_flash_local(PSTR("ВВОД"),0,35,128);break;  */
 	   break;	   
 	   }
 	   case  EXEC::SECOND:{
@@ -1063,7 +1063,7 @@ void CPrg::show_channels_in_see_corr(int8_t c)
 		
 
 	//Эталон канал 0:
-	if((table_plus && ref_.t_r_p_auto) || (!table_plus && ref_.t_r_m_auto)){//только для таблицы сделанный с эталоном 	
+	if((table_plus && ref_.t_r_p_auto) || (!table_plus && ref_.t_r_m_auto)){//только для таблицы сделанный с эталоном
 		if(ref_.table_m_from_flash){
 			coeff.mult(255,&et,coeff.coeff_corr[cur_see_ch].n_after_dot,coeff.coeff_corr[cur_see_ch].binary);
 		}
@@ -1113,7 +1113,7 @@ void CPrg::WorkCorr_input_loop(void)
 	{
 		Lir.ResultForInputNum = 0;
 		if(Lir.WorkCorr_entry == NUM_POINT){
-			if((ref_.table_plus && ref_.table_is_ready_plus) || ((ref_.table_plus == false) && ref_.table_is_ready_mines )){  // если таблица + или - ок ,то переходим в режим редактирования таблицы			
+			if((ref_.table_plus && ref_.table_is_ready_plus) || ((ref_.table_plus == false) && ref_.table_is_ready_mines )){  // если таблица + или - ок ,то переходим в режим редактирования таблицы
 				display.print_flash_local(PSTR("Номер точки:"),0,0,112);
 				point = 0;
 			}
@@ -1160,7 +1160,7 @@ void CPrg::WorkCorr_input_loop(void)
 	{
 		if(~trigger&2)
 		{
-			display.print_flash_local(PSTR("Введите отклонение:"),0,0,112);			
+			display.print_flash_local(PSTR("Введите отклонение:"),0,0,112);
 			trigger |= 2; //i2 = ~i2;
 		}
 		x_cursor = 19;
@@ -1305,7 +1305,7 @@ void CPrg::WorkCorr_input_loop(void)
 						}
 						//------------------------------------------------------------------------
 						if(mem_pos_ukazetel != 0){
-							display.put_char_local_independent(' ',0,33,mem_pos_ukazetel);	// стираем предыдущий указатель																	
+							display.put_char_local_independent(' ',0,33,mem_pos_ukazetel);	// стираем предыдущий указатель
 						}
 
 						mem_pos_ukazetel = y_pos;
@@ -1326,7 +1326,7 @@ void CPrg::WorkCorr_input_loop(void)
 			}
 		if(Lir.WorkCorr_entry == EDIT_POINT)
 			{
-				// здесь забираем дискрету(inc) точки(point) и грузим в отдельный чип озу по адресу(point) 
+				// здесь забираем дискрету(inc) точки(point) и грузим в отдельный чип озу по адресу(point)
 				display.put_char_local_independent(' ',0,33,mem_pos_ukazetel);
 				long inc = Lir.String_to_bin(Lir.bufASCIIstr,Lir.corr_see_cur_ch);//Lir.strtol_lir(Lir.bufASCIIstr);				
 				coeff.div(Lir.corr_see_cur_ch,&inc);
@@ -1521,7 +1521,7 @@ void CPrg::to_do_correction(void){
 	   }
 	   else {
 		   display.print_flash_local(PSTR("           "),0,18,80);  // Номер интервала:
-		   display.print_flash_local(PSTR("           "),0,18,96);	// Эталон значение:	   
+		   display.print_flash_local(PSTR("           "),0,18,96);	// Эталон значение:
 	   }
 	   //	 }
 	   display.print_debug_one_local(speed,0,21,192);
@@ -1537,13 +1537,13 @@ void CPrg::to_do_correction(void){
 		case CPorta_ref::SPEED_LIMIT:
 		display.print_flash_local(PSTR("предел скорости"),0,21,208);break;
 		case CPorta_ref::IF_MINES_FAULT:
-		display.print_flash_local(PSTR("период -"),0,21,208);break;	
+		display.print_flash_local(PSTR("период -"),0,21,208);break;
 		case CPorta_ref::IF_PLUS_FAULT:
 		display.print_flash_local(PSTR("период +"),0,21,208);break;
 		case CPorta_ref::MULT:
 		display.print_flash_local(PSTR("умножение"),0,21,208);break;
 		case CPorta_ref::NO_CONNECTOR:
-		display.print_flash_local(PSTR("не готов"),0,21,208);break;	
+		display.print_flash_local(PSTR("не готов"),0,21,208);break;
 		}
 //	cli();	 ref_.check_counter_mem=ref_.check_counter; sei();
 //	 display.print_debug_one_local(ref_.check_counter_mem,0,0,224);   
@@ -2575,7 +2575,7 @@ unsigned char tmp[N_AXIS];
 int start_EEPROM=172;
 
 	for(int n=0;n<N_AXIS;n++) {
-		tmp[n] = read_one_byte_eeprom_address_int(start_EEPROM+n,&error);
+		tmp[n] = flash_prg.read_one_byte_eeprom_address_int(start_EEPROM+n,&error);
 		if(tmp[n] == 255)
 			tmp[n] = CDisp::COORDINATE;
 		}
@@ -2593,7 +2593,7 @@ bool CPrg::to_copy_contrast_to_RAM()
 	int start_EEPROM=176;
 	unsigned char tmp;
 
-	tmp = read_one_byte_eeprom_address_int(start_EEPROM,&error);
+	tmp = flash_prg.read_one_byte_eeprom_address_int(start_EEPROM,&error);
 
 	if((tmp>=MIN_contr) && (tmp<=MAX_contr))
 	{
@@ -2612,7 +2612,7 @@ bool CPrg::to_copy_to_see_time_toRAM()
 	int start_EEPROM=177;
 	unsigned char tmp;
 
-	tmp = read_one_byte_eeprom_address_int(start_EEPROM,&error);
+	tmp = flash_prg.read_one_byte_eeprom_address_int(start_EEPROM,&error);
 
 	if(tmp == 0 || tmp == 1)
 	{
@@ -2632,7 +2632,7 @@ bool CPrg::to_copy_Bdrate_toRAM()
 	int start_EEPROM=178;
 	unsigned char tmp;
 
-	tmp = read_one_byte_eeprom_address_int(start_EEPROM,&error);
+	tmp = flash_prg.read_one_byte_eeprom_address_int(start_EEPROM,&error);
 
 	if(tmp == usb115200 || tmp == usb200000 || tmp == usb9600)
 	{
@@ -2652,7 +2652,7 @@ bool CPrg::to_copy_Rejim_zaxvata_ref_metki_toRAM()
 	int start_EEPROM=179;
 	unsigned char tmp;
 
-	tmp = read_one_byte_eeprom_address_int(start_EEPROM,&error);
+	tmp = flash_prg.read_one_byte_eeprom_address_int(start_EEPROM,&error);
 
 	if(tmp == 0 || tmp == 1)
 	{
@@ -2674,7 +2674,7 @@ bool CPrg::to_copy_night_mode_toRAM()
 	int start_EEPROM=180;
 	unsigned char tmp;
 
-	tmp = read_one_byte_eeprom_address_int(start_EEPROM,&error);
+	tmp = flash_prg.read_one_byte_eeprom_address_int(start_EEPROM,&error);
 	
 	display.invert_display = tmp;
 
@@ -2739,7 +2739,7 @@ bool CPrg::to_copy_sound()
 	int start_EEPROM=185;
 	unsigned char tmp;
 
-	tmp = read_one_byte_eeprom_address_int(start_EEPROM,&error);
+	tmp = flash_prg.read_one_byte_eeprom_address_int(start_EEPROM,&error);
 	
 	Lir.sound_and_other = tmp;
 
@@ -2881,25 +2881,25 @@ return error;
 bool CPrg::read_luft_from_EEPROM(unsigned char *tmp_0,unsigned char *tmp_1,
                                  unsigned char *tmp_2,unsigned char *tmp_3){
 bool error;
-		tmp_0[0] = read_one_byte_eeprom_address_int(76,&error);
-		tmp_0[1] = read_one_byte_eeprom_address_int(77,&error);
-		tmp_0[2] = read_one_byte_eeprom_address_int(78,&error);
-		tmp_0[3] = read_one_byte_eeprom_address_int(79,&error);
+		tmp_0[0] = flash_prg.read_one_byte_eeprom_address_int(76,&error);
+		tmp_0[1] = flash_prg.read_one_byte_eeprom_address_int(77,&error);
+		tmp_0[2] = flash_prg.read_one_byte_eeprom_address_int(78,&error);
+		tmp_0[3] = flash_prg.read_one_byte_eeprom_address_int(79,&error);
 //-------------------------------------------------------------
-		tmp_1[0] = read_one_byte_eeprom_address_int(80,&error);
-		tmp_1[1] = read_one_byte_eeprom_address_int(81,&error);
-		tmp_1[2] = read_one_byte_eeprom_address_int(82,&error);
-		tmp_1[3] = read_one_byte_eeprom_address_int(83,&error);
+		tmp_1[0] = flash_prg.read_one_byte_eeprom_address_int(80,&error);
+		tmp_1[1] = flash_prg.read_one_byte_eeprom_address_int(81,&error);
+		tmp_1[2] = flash_prg.read_one_byte_eeprom_address_int(82,&error);
+		tmp_1[3] = flash_prg.read_one_byte_eeprom_address_int(83,&error);
 //-------------------------------------------------------------
-		tmp_2[0] = read_one_byte_eeprom_address_int(84,&error);
-		tmp_2[1] = read_one_byte_eeprom_address_int(85,&error);
-		tmp_2[2] = read_one_byte_eeprom_address_int(86,&error);
-		tmp_2[3] = read_one_byte_eeprom_address_int(87,&error);
+		tmp_2[0] = flash_prg.read_one_byte_eeprom_address_int(84,&error);
+		tmp_2[1] = flash_prg.read_one_byte_eeprom_address_int(85,&error);
+		tmp_2[2] = flash_prg.read_one_byte_eeprom_address_int(86,&error);
+		tmp_2[3] = flash_prg.read_one_byte_eeprom_address_int(87,&error);
 //-------------------------------------------------------------
-		tmp_3[0] = read_one_byte_eeprom_address_int(88,&error);
-		tmp_3[1] = read_one_byte_eeprom_address_int(89,&error);
-		tmp_3[2] = read_one_byte_eeprom_address_int(90,&error);
-		tmp_3[3] = read_one_byte_eeprom_address_int(91,&error);
+		tmp_3[0] = flash_prg.read_one_byte_eeprom_address_int(88,&error);
+		tmp_3[1] = flash_prg.read_one_byte_eeprom_address_int(89,&error);
+		tmp_3[2] = flash_prg.read_one_byte_eeprom_address_int(90,&error);
+		tmp_3[3] = flash_prg.read_one_byte_eeprom_address_int(91,&error);
 //-------------------------------------------------------------
 return error;
  }
@@ -3144,10 +3144,10 @@ bool CPrg::axis_is_chosen(uint16_t *P20,uint16_t *P21,
 	bool need_to_write=false;
 	unsigned char tmp[4];
 	bool error;
-	 tmp[0] = read_one_byte_eeprom_address_int(0,&error);
-	 tmp[1] = read_one_byte_eeprom_address_int(1,&error);
-	 tmp[2] = read_one_byte_eeprom_address_int(2,&error);
-	 tmp[3] = read_one_byte_eeprom_address_int(3,&error);
+	 tmp[0] = flash_prg.read_one_byte_eeprom_address_int(0,&error);
+	 tmp[1] = flash_prg.read_one_byte_eeprom_address_int(1,&error);
+	 tmp[2] = flash_prg.read_one_byte_eeprom_address_int(2,&error);
+	 tmp[3] = flash_prg.read_one_byte_eeprom_address_int(3,&error);
 	 	*P20=(unsigned int)tmp[0];
 	 	*P21=(unsigned int)tmp[1];
 	 	*P22=(unsigned int)tmp[2];
@@ -3168,10 +3168,10 @@ bool CPrg::axis_is_chosen_to_screen(uint16_t *Str1,uint16_t *Str2,uint16_t *Str3
     	bool need_to_write=false;
     	unsigned char tmp[4];
     	bool error;
-    	tmp[0] = read_one_byte_eeprom_address_int(4,&error);
-    	tmp[1] = read_one_byte_eeprom_address_int(5,&error);
-    	tmp[2] = read_one_byte_eeprom_address_int(6,&error);
-    	tmp[3] = read_one_byte_eeprom_address_int(7,&error);
+    	tmp[0] = flash_prg.read_one_byte_eeprom_address_int(4,&error);
+    	tmp[1] = flash_prg.read_one_byte_eeprom_address_int(5,&error);
+    	tmp[2] = flash_prg.read_one_byte_eeprom_address_int(6,&error);
+    	tmp[3] = flash_prg.read_one_byte_eeprom_address_int(7,&error);
     	*Str1=(unsigned int)tmp[0];
     	*Str2=(unsigned int)tmp[1];
     	*Str3=(unsigned int)tmp[2];
@@ -3217,7 +3217,10 @@ unsigned char CPrg::read_one_byte_eeprom_address_page(unsigned char addr_page,un
 	result=NVM.DATA0;
 	return result;
 }
+
 unsigned char CPrg::read_one_byte_eeprom_address_int(unsigned int addr,bool *error){
+
+	return flash_prg.read_one_byte_eeprom_address_int(addr,error);
 	//25.01.2018 it takes 58 cycles 58*31.25=1812.5 ns
 	unsigned char result;
 	//25.01.2018 it is EEPROM like memory from 0x1000-0x1fff (4096)
@@ -3240,6 +3243,7 @@ unsigned char CPrg::read_one_byte_eeprom_address_int(unsigned int addr,bool *err
 	*error=false;
 	return result;
 }
+
 //25.01.2018
 /*
 максимум 32 байта за раз (страница)
@@ -3462,10 +3466,10 @@ bool  CPrg::to_write_to_eeprom_axis_is_chosen(uint16_t *P20,uint16_t *P21,
 		uint16_t *P22,uint16_t *P23){
 	unsigned char tmp[4];
 	bool error;
-		 tmp[0] = read_one_byte_eeprom_address_int(0,&error);
-		 tmp[1] = read_one_byte_eeprom_address_int(1,&error);
-		 tmp[2] = read_one_byte_eeprom_address_int(2,&error);
-		 tmp[3] = read_one_byte_eeprom_address_int(3,&error);
+		 tmp[0] = flash_prg.read_one_byte_eeprom_address_int(0,&error);
+		 tmp[1] = flash_prg.read_one_byte_eeprom_address_int(1,&error);
+		 tmp[2] = flash_prg.read_one_byte_eeprom_address_int(2,&error);
+		 tmp[3] = flash_prg.read_one_byte_eeprom_address_int(3,&error);
 		if(*P20==(unsigned int)tmp[0] && *P21==(unsigned int)tmp[1]
 		   && *P22==(unsigned int)tmp[2] && *P23==(unsigned int)tmp[3]) return true;
 		 		tmp[0] = (unsigned char)*P20;
@@ -3484,10 +3488,10 @@ bool CPrg::to_write_to_eeprom_axis_to_screen(uint16_t *Str1,uint16_t *Str2,uint1
 {
      unsigned char tmp[4];
      bool error;
-     tmp[0] = read_one_byte_eeprom_address_int(4,&error);
-     tmp[1] = read_one_byte_eeprom_address_int(5,&error);
-     tmp[2] = read_one_byte_eeprom_address_int(6,&error);
-     tmp[3] = read_one_byte_eeprom_address_int(7,&error);
+     tmp[0] = flash_prg.read_one_byte_eeprom_address_int(4,&error);
+     tmp[1] = flash_prg.read_one_byte_eeprom_address_int(5,&error);
+     tmp[2] = flash_prg.read_one_byte_eeprom_address_int(6,&error);
+     tmp[3] = flash_prg.read_one_byte_eeprom_address_int(7,&error);
      if(*Str1==(unsigned int)tmp[0] && *Str2==(unsigned int)tmp[1]
      && *Str3==(unsigned int)tmp[2] && *Str4==(unsigned int)tmp[3]) return true;
      tmp[0] = (unsigned char)*Str1;
@@ -3734,7 +3738,7 @@ bool result;
 //===================================================чтение заголовка таблицы коррекции =================================================
 		case EXCHANGE::UPLOAD_FLASH_TO_RAM_PREPEARING:
 		
-		if(ref_.tbl[0] && ref_.tbl[1]) //если таблицы опрошены 
+		if(ref_.tbl[0] && ref_.tbl[1]) //если таблицы опрошены
 			return EXCHANGE_ERRORS::TASK_IS_ENDED;
 		
 //28.12.2018
@@ -3764,7 +3768,7 @@ bool result;
 				pages_counter=0;
 				ref_.t_r_p_auto = plus[14];
 				ref_.table_p_from_flash = 1;
-				//проверить есть ли коэффициент, делитель , кол -во точек				
+				//проверить есть ли коэффициент, делитель , кол -во точек
 				get_bin_n_after_dot_from_header(Lir.cnt_StrCh,1,plus,mines);
 				block_plus=((set_point_plus*4-4)/264)+1;
 				return EXCHANGE_ERRORS::OK;
@@ -4076,7 +4080,7 @@ bool CPrg::to_do_correction_in_realtime_ch(const int &ch)
 //#pragma GCC optimize ("O0")
 /*
 in     long *abs                     - указател на абсолютный счетчик канала
-in_out long *result                  - указатель на результат 
+in_out long *result                  - указатель на результат
 in     unsigned char *header_plus    - указатель на массив заголовка таблицы +
 in     unsigned char *header_mines	 - указатель на массив заголовка таблицы -
 in     unsigned int start_page_plus  - адрес начала таблицы +

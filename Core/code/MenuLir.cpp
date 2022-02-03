@@ -27,7 +27,7 @@
 
  extern "C"{
  // функция находится в файле to_take_SP.S
- // понадобилась при умножении больших чисел 
+ // понадобилась при умножении больших чисел
  // например при умножении 9999 9999.9999 * 1000 ,
  // указатель стека уходил за границу т.е указатель был выше дна SP>0x24ff(не путать с переполнением стека)
  // функция восстанавливает Y pair который искажается в результате перемножения больших чисел,
@@ -316,7 +316,7 @@ void Menu::updENC_error()
 выравнивает бинарное число относительно положения точки и формата , добавляя в конец нули
 out long & data            - указатель на бинарное число результат
 in  int format             - формат приходящих данных в unsigned char * string
-in  unsigned char * string - указатель на входящую строку 
+in  unsigned char * string - указатель на входящую строку
 */
 int Menu::ConvertASCIIlinear_circle_tolong(long & data, int format, unsigned char * string)
 {
@@ -1200,7 +1200,7 @@ void Menu::draw_Zone_ref_metki_static(int y)
 }
 
 /*
-uint32_t data - данные 
+uint32_t data - данные
 uint8_t BIT_n - позиция бита в data
 int x - координата по x
 int y - координата по y
@@ -1706,7 +1706,7 @@ void Menu::menu_down(const int id,int8_t &cnt,const uint8_t SZ,m_state &entry)
 /*
 пропустить пункт меню
 bool updown - 0 вверх 1- вниз
-int8_t &cnt - счетчик 
+int8_t &cnt - счетчик
 int num - номер пропускаемой строки
 */
 void Menu::skip_menu_item(bool updown,int8_t &cnt,int num)
@@ -1795,7 +1795,7 @@ void Menu::GoToMenu(int id)
 		entry_BEGN = INIT;
 }
 /*
-отрисовка меню 
+отрисовка меню
 const char** menu_ - массив указателей на указатели ,обязательно должен заканчиваться нулевым указателем
 uint8_t cnt - текущее выделение пункта меню
 const unsigned char& page - страница памяти дисплея
@@ -1980,10 +1980,10 @@ void Menu::WritetoEepromAxisOptions(int ch)
 		 case idCmd:               // ввод для командной строки
 		 case idInputCntrlOpt:     // ввод для настроек управления осями
 		 case idInputIndicOpt:     // ввод для настроек индикации
-		 case idInputHandWeelOpt:  // ввод для настроек маховика	
-		 case idCntrlInput:        // ввод для настроек управление осями лир541 
+		 case idInputHandWeelOpt:  // ввод для настроек маховика
+		 case idCntrlInput:        // ввод для настроек управление осями лир541
 		 case idZoneBrakeInput:    // ввод для Зон торможения
-		 case idEditPrgInput:      // ввод для Редактора Программ/Подпрограмм 	
+		 case idEditPrgInput:      // ввод для Редактора Программ/Подпрограмм
 		 case idInstrCInput:       // ввод для Инструмента
 		 case idAnalZInput:        // ввод для Аналоговое задание
 		 case idG0Input:		   // ввод для Скорости G0
@@ -2066,7 +2066,7 @@ void Menu::WritetoEepromAxisOptions(int ch)
 						}
 				      else if(CurFormatM==CPrg::FORMAT::CIRCLE_SECUNDO || CurFormatM==CPrg::FORMAT::CIRCLE_MINUTO)
 						 {
-							if(Key_Point_min_sec())		//result[1] = '°';		
+							if(Key_Point_min_sec())		//result[1] = '°';
 								return;												
 						 }
 				      
@@ -2595,7 +2595,7 @@ return false;
 функция для перехода между модами
 const int& in   - мод в которой входим
 const int& from - мод из которого выходим
-char clear      - очистка всего экрана перед переходом 
+char clear      - очистка всего экрана перед переходом
 */
 void Menu::goto_mode(const int& in, const int& from,const char &clear)
 {			
@@ -2644,7 +2644,7 @@ in unsigned char*input_str - указатель на входящую строк
 const unsigned char& ch    - канал
 
 return value
- long  - результат преобразования 
+ long  - результат преобразования
 */
 long Menu::String_to_bin(unsigned char*input_str,const unsigned char& ch)
 {
@@ -2867,7 +2867,7 @@ uint16_t Menu::plb2(uint8_t stepb)
 	return tmp;	*/
 }
 /*
-возведение в степень числа 2 
+возведение в степень числа 2
 сдвиг в пределах 4 байт, на 1 mks больше
 максимальная stepb 31
 из 4 в 00000000 00000000 00000000 00010000
@@ -2880,7 +2880,7 @@ uint32_t Menu::plb2l(uint8_t stepb)
 	return tmp;
 }
 /*
-возведение в степень числа 2 
+возведение в степень числа 2
 сдвиг в пределах 8 байт
 максимальная stepb 63
 из 4 в 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00010000
@@ -3055,10 +3055,10 @@ long Menu::conv_c_i(long cnt,uint8_t c, bool ref)
 	coeff.mult(c,&cnt);
 	#endif
 	
-	if(is_corr(c)){	// ЕСТЬ КОРРЕКЦИЯ			
+	if(is_corr(c)){	// ЕСТЬ КОРРЕКЦИЯ
 		if(ref){
 			if(flash_prg.axis_cfg[c].is_coded_ref == CPrg::YESM){
-				//смещение код меток и G53 применяются перед таблицей (смещение таблицы для преобразователей с КМ)	
+				//смещение код меток и G53 применяются перед таблицей (смещение таблицы для преобразователей с КМ)
 				if(MsgKey.mode == TMsgKey::HAND || MsgKey.mode == TMsgKey::INPUT_PARAM){
 					if(MsgKey.offset_number > 0)
 						cnt -= display.offset_g5x[MsgKey.offset_number - 1][c];
@@ -3250,7 +3250,7 @@ long Menu::hex2bcd_l(long in) {
 
 /*
 return
-true -  на каком то канале имеется ошибка 
+true -  на каком то канале имеется ошибка
 false - ошибок нет
 */
 bool Menu::Encs_fault()
@@ -3304,7 +3304,7 @@ void Menu::init_hand(const unsigned char& page)
 		else
 			outP_G0(_modals_cmd.G0,1);
 
-		//Lir.init_hand_CMD_CTRL(0);  // блокируем		
+		//Lir.init_hand_CMD_CTRL(0);  // блокируем
 		cms.on = false;
 	#endif
 	screen.to_clear_place_for_virtual_buttons(4); //display.clear_ram_null();
@@ -3313,7 +3313,7 @@ void Menu::init_hand(const unsigned char& page)
 	entry_hand = IDLE;
 	#if (configUSE_NCshell == 1)
 	if(init_hand_CMD_CTRL(0) == 0){// перемещена сюда из за entry_hand = IDLE;
-			if(HM_toF && MsgKey.tracer_real == TMsgKey::DRIVE_CONTROL){//переходим в ручное перемещение оси Lir.strfunc_hand	
+			if(HM_toF && MsgKey.tracer_real == TMsgKey::DRIVE_CONTROL){//переходим в ручное перемещение оси Lir.strfunc_hand
 				MsgKey.key = convStoKey(strfunc_hand);
 				dir_mh = dir_mh_sv;
 				if(dir_mh == DIR_MH_RIGHT){
@@ -3352,7 +3352,7 @@ int Menu::init_hand_CMD_CTRL(const unsigned char& page)
 		if(Lir.stop_in_move == 0){ //если не было нажатия кнопки стоп во время перемещения
 			if(get_Erase_Prednabor()){ //если включен параметр "Обновление преднабора"
 				if(error_on_hand == 0){ //если не было ошибок при пуске кадра
-					if(alert == NO_ALERT){ //если нет ошибок					
+					if(alert == NO_ALERT){ //если нет ошибок
 						if(!ch_sw.plus && !ch_sw.minus && !ch_sw_prog.minus && !ch_sw_prog.plus) {//если нет ошибки ограничений
 							if(!Encs_fault()){ // если нет ошибок датчика
 								memset(frame_cmd[0],'\0',FRAME_SZ);//очистка буфера ввода
@@ -3394,7 +3394,7 @@ void Menu::exit_hand_CMD_CTRL(const unsigned char& page)
 		Lir.block_str[3] = false;
 	
 	if(Str[N_AXIS - 1] != no_axis)
-		display.put_char_local_independent(' ',page,4,16 * 11);//очистка символа рядом со знаком оси	
+		display.put_char_local_independent(' ',page,4,16 * 11);//очистка символа рядом со знаком оси
 	//==Очистка ShowInstr
 	for(int i = 0 ; i < 4 ; i++){
 		display.print_symbols_local(' ',10,page,30, 16 * (11 + i));
@@ -3719,7 +3719,7 @@ void Menu::hand_input()
 		MsgKey.SET_M(TMsgKey::MODE::BEGIN);
 		SET_C(idBegin);
 		init_cursor_pos();
-		display.print_symbols_local(' ',20,0,5,208); //очистка	
+		display.print_symbols_local(' ',20,0,5,208); //очистка
 		memset(display.go_to_blink_string,0,N_STR);	
 	}
 }
@@ -3793,7 +3793,7 @@ void Menu::actions_DOUT_input(const unsigned char& page)
 				tmp = 10000;
 			else if(tmp < -10000L)
 				tmp = -10000;
-			U_out[menu_cnt_up_down_DOUT - 3] = (int16_t)tmp; //вычислить указатель 
+			U_out[menu_cnt_up_down_DOUT - 3] = (int16_t)tmp; //вычислить указатель
 			cli();
 			uart_485.send_U(U_out);
 			sei();
@@ -3824,8 +3824,8 @@ void Menu::init_menu_DOUT(const unsigned char& page)
 		display.print_flash_local(PSTR(" ТЕСТ ВЫХОДОВ/МАРКЕРОВ"), 0, 0, 0);
 		NORMAL_CHAR()
 		display.print_flash_local(PSTR("- номер"), 0, 26, 16 * 8);
-		display.print_flash_local(PSTR("<ВВОД> - вкл/выкл"), 0, 16, 16 * 9);	
-		display.print_flash_local(PSTR(" Ошибки связи:"), 0, 0, 16 * 13);	
+		display.print_flash_local(PSTR("<ВВОД> - вкл/выкл"), 0, 16, 16 * 9);
+		display.print_flash_local(PSTR(" Ошибки связи:"), 0, 0, 16 * 13);
 	#else
 		display.print_flash_local(PSTR(" ТЕСТ ВЫХОДОВ "), 0, 0, 0);
 		display.print_flash_local(PSTR(" P1 "), 0, 0, 32);
@@ -6707,7 +6707,7 @@ void Menu::draw_param_OUTAXI(const unsigned char& page, int x, char align)
 		p++;
 	}
 
-	//==Тип задания	
+	//==Тип задания
 	if(flash_prg._OUTAxis[ch].typeZ == CPrg::ANALOG)
 		p_s = PSTR("аналоговый");
 	else if(flash_prg._OUTAxis[ch].typeZ == CPrg::DISCRET)
@@ -7201,7 +7201,7 @@ void Menu::draw_menu_ANALZ(const unsigned char& page)
 
 	menu_table[0] = PSTR(" АНАЛОГОВОЕ ЗАДАНИЕ ОСИ");
 	menu_table[1] = PSTR(" Аналоговый выход");
-	menu_table[2] = PSTR(" Полярность");	
+	menu_table[2] = PSTR(" Полярность");
 	if(flash_prg.axis_cfg[flash_prg.ch].type == CPrg::LINEAR)
 		menu_table[3] = PSTR(" Макс. скорость G1,мм/мин");
 	else
@@ -7756,7 +7756,7 @@ void Menu::timer1MSEKON()
 {
 	#if (configUSE_Cycle1ms == 1)
 	cli();
-	TCC0.INTCTRLA=TC_OVFINTLVL_MED_gc;// 1ms таймер в 
+	TCC0.INTCTRLA=TC_OVFINTLVL_MED_gc;// 1ms таймер в
 	sei();
 	#endif
 }
@@ -7997,7 +7997,7 @@ void Menu::draw_menu_ANOUT()
 		menu_table[2] = PSTR(" Смещение >a2");
 		menu_table[3] = sLine;
 		menu_table[4] = PSTR(" Напряжение >а1");
-		menu_table[5] = PSTR(" Напряжение >а2");	
+		menu_table[5] = PSTR(" Напряжение >а2");
 		menu_table[6] = nullptr;
 		menu_ANOUT_SZ = 5;
 		//==вывод на экран
@@ -8309,12 +8309,19 @@ void Menu::Analog_Corr_handler_ANIN()
 		else if(tmp > flash_prg._Allp_param7.MAX_code)
 			tmp = flash_prg._Allp_param7.MAX_code;
 
-		_modals_cmd.Feed = ((long)tmp * flash_prg._Allp_param7.MAX_percent_feed) / (flash_prg._Allp_param7.MAX_code - flash_prg._Allp_param7.min_code);
+		short denom = flash_prg._Allp_param7.MAX_code - flash_prg._Allp_param7.min_code;
+		if(denom <= 0)
+			denom = 1;
+
+		_modals_cmd.Feed = ((long)tmp * flash_prg._Allp_param7.MAX_percent_feed) / (denom);
 
 		if(_modals_cmd.Feed < flash_prg._Allp_param7.min_percent_feed)
 			_modals_cmd.Feed = flash_prg._Allp_param7.min_percent_feed;
 		else if(_modals_cmd.Feed > flash_prg._Allp_param7.MAX_percent_feed)
 			_modals_cmd.Feed = flash_prg._Allp_param7.MAX_percent_feed;
+
+		if(_modals_cmd.Feed > 200)
+			_modals_cmd.Feed = 200;
 
 			//if(MsgKey.mode != TMsgKey::FIND_REF)
 		if(m_Feed != _modals_cmd.Feed){				
@@ -8712,7 +8719,7 @@ void Menu::menu_enter_INSTRC()
 			entry_INSTRC = UPDATE;
 			}
 		else if(menu_column_INSTRC == 1)
-			SET_C(idInstrCInput);//входим в режим редактирования			
+			SET_C(idInstrCInput);//входим в режим редактирования
 	}
 }
 
@@ -8897,7 +8904,7 @@ void Menu::init_menu_DBG(const unsigned char & page)
 	display.clear_ram_null();
 	entry_DBG = UPDATE;
 	#if (configUSE_NCshell == 1)
-	//==сброс выхода готовность УЦИПУ при входе в режим отладка 
+	//==сброс выхода готовность УЦИПУ при входе в режим отладка
 	block_SPPU_OUT = true;
 	Lir.outP(flash_prg._OUTGen.gotovnostbUCIPU,0,1); 	
 	//==
@@ -9245,7 +9252,7 @@ void Menu::draw_menu_OPT(const unsigned char & page)
 	}
 	//==
 	#if (configUSE_PLC == 1)
-	menu_table[i++] = PSTR(" Внешний ПЛК");	
+	menu_table[i++] = PSTR(" Внешний ПЛК");
 	#endif
 	#if (configUSE_NCshell == 1)
 	menu_table[i++] = PSTR(" Обновление преднабора");
@@ -9820,7 +9827,7 @@ void Menu::draw_menu_gs(const unsigned char & page)
 	//==размер меню
 	menu_gs_SZ = i - 1;
 	//==
-	//==вывод на экран 
+	//==вывод на экран
 	Draw_menu(menu_table, menu_cnt_gs,page);
 	//==
 	entry_gs = IDLE;
@@ -10479,7 +10486,7 @@ void Menu::draw_m_cntr_pr(const unsigned char & page)
 {	
 	const char *menu_table[15] = {0};
 	uint8_t i = 0;
-	//==создаем меню 
+	//==создаем меню
 	for (uint8_t j = 0; j < 14; i++,j++) {
 		if (i == 2 && flash_prg.axis_cfg[flash_prg.ch].type == CPrg::TYPE::CIRCLE)
 			j++;
@@ -10560,7 +10567,7 @@ void Menu::draw_param_cntr_pr(const unsigned char & page,int x,char align)
 	display.print_flash_local(p,0,x,16 * place++,align);
 	//==
 
-	//==Зона референтной метки==	
+	//==Зона референтной метки==
 	flash_prg.show_P(flash_prg.axis_cfg[flash_prg.ch].ref_pulse_zone,IN_P, x, 16 * place++, align); 
 	//==
 
@@ -11128,7 +11135,7 @@ void Menu::print_long_format(long data,int format,const unsigned char& page,unsi
 		format == CPrg::FORMAT::CIRCLE_SECUNDO_1)
 		Lir.convert_long_to_secundo2(data,txt_out,format);
 
-	//== добавляем незначащие нули 
+	//== добавляем незначащие нули
 	if( format == CPrg::FORMAT::FORMAT_END && zero)
 		Lir.add_filler(txt_out,SZ_STR,zero,'0');	
 	//===
@@ -11713,7 +11720,7 @@ void Menu::start_measure_sw_to_ref(int ch,bool res)
 				trig_input[ch] = 0;
 				ref_.altera_off_int(ch);
 			}
-			// если 
+			// если
 			if(ref_.ref_mark_measure[ch] && res){
 				ref_.enable_measure_int[ch]=ref_.ref_mark_measure[ch]=false;
 				ref_.measurement_is_ended=true;				
@@ -11987,7 +11994,7 @@ void Menu::show_small_axis(int x,int y)
 }
 
 /*
-функция определяет кол -во свободных координатных строк снизу 
+функция определяет кол -во свободных координатных строк снизу
 return ch - кол во строку начиная снизу
 */
 char Menu::init_resz_prg_v()
@@ -12241,7 +12248,7 @@ void Menu::add_frame_EDITPR()
 {
 	uint32_t addres = 0;
 	uint32_t addres_prg = 0;
-	//====если в последнем кадре только частота то сразу ее записываем 
+	//====если в последнем кадре только частота то сразу ее записываем
 	//exe_F_only(bufASCIIstr, IN_BUF_SZ);
 	//===
 	set_blank_cmd((char*)bufASCIIstr, IN_BUF_SZ);
@@ -12625,11 +12632,11 @@ void Menu::delete_frm_EDITPR()
 				if (tmp == _header_prg.cnt)
 				break;
 				myflash.Read_flash_at45(addres_prg + (i * FRAME_FLASH_SZ) + FRAME_FLASH_SZ, (uint8_t*)buf, FRAME_FLASH_SZ);
-				IncDec_frm_number(buf, 0);//уменьшение номера кадра на один				
+				IncDec_frm_number(buf, 0);//уменьшение номера кадра на один
 				append_crc(Lir.crc((uint8_t*)buf, display.strnlen_lir((const char*)buf,FRAME_FLASH_SZ - 2)),(uint8_t*)buf,FRAME_FLASH_SZ - 2);//20us				
 				myflash.Write_flash_at45(addres_prg + (i * FRAME_FLASH_SZ), (uint8_t*)&buf, FRAME_FLASH_SZ);
 				tmp++;	
-				//при 500 кадрах обновление занимает около 3ех секунд			
+				//при 500 кадрах обновление занимает около 3ех секунд
 			}
 			memset(buf, 0xFF, FRAME_FLASH_SZ);
 			myflash.Write_flash_at45(addres_prg + (i * FRAME_FLASH_SZ), (uint8_t*)&buf, FRAME_FLASH_SZ);
@@ -13219,7 +13226,7 @@ void Menu::menu_enter_LISPRG()
 		//запускаем редактор программ
 		if(!myflash.check_spi_at45()){
 			if(Lir.btn_zapusk_prg && check_prg(0)){
-				//запускаем программу сразу на отработку если там есть кадры 
+				//запускаем программу сразу на отработку если там есть кадры
 				PrgorSubPrg = 0;
 				choice_frame_EDITPR();
 				entry_LISPRG = INIT;
@@ -13232,7 +13239,7 @@ void Menu::menu_enter_LISPRG()
 				}
 		}			
 		else
-			status(PSTR("ошибка памяти"),200,0); 
+			status(PSTR("ошибка памяти"),200,0);
 	}
 }
 
@@ -13358,7 +13365,7 @@ void Menu::menu_enter_LISSUB()
 			}
 		}
 		else
-			status(PSTR("ошибка памяти"),200,0); 
+			status(PSTR("ошибка памяти"),200,0);
 	}
 }
 
@@ -13552,7 +13559,7 @@ void Menu::add_frame()
 	//cnt_frame = 1;
 	set_num_str(bufASCIIstr, IN_BUF_SZ,0);
 		
-	display.strncpy_lir(frame_cmd[MAX_FRAME - 1], (const char*)bufASCIIstr, FRAME_SZ); //копируем полностью строку вместо	
+	display.strncpy_lir(frame_cmd[MAX_FRAME - 1], (const char*)bufASCIIstr, FRAME_SZ); //копируем полностью строку вместо
 }
 
 void Menu::add_edit_frame()
@@ -13802,7 +13809,7 @@ void Menu::init_cmd(const unsigned char &page)
 	} */
 
 	
-	status(PSTR("Преднабор"), 0, page);	
+	status(PSTR("Преднабор"), 0, page);
 	entry_cmd = IDLE;
 }
 
@@ -13811,8 +13818,8 @@ void Menu::input_cmd(const unsigned char &page)
 	update_func_cmd_3btn(page);
 	flashing_cursor(4, 16 * 12, page);
 
-	//взять букву , найти по букве канал, записать формат в форматM	
-	// для определения текущего формата для ввода можно здесь парсить строку (букву оси)	
+	//взять букву , найти по букве канал, записать формат в форматM
+	// для определения текущего формата для ввода можно здесь парсить строку (букву оси)
 	detect_format();	
 
 	if (ResultForInputNum == input::ok) {
@@ -14452,7 +14459,7 @@ void Menu::put_moving_icons(const unsigned char & page)
 			}
 			else if(s == 3){
 				//display.put_button_(X_BUTTON_PLACE,Y_FOUR);
-				//display.print_flash_local(PSTR("ВИД "), page, 35, 178);				
+				//display.print_flash_local(PSTR("ВИД "), page, 35, 178);
 				// display.put_button_(X_BUTTON_PLACE,Y_FOUR,_pic_SHOW_PROG);
 				}
 			else if(s == 2){
@@ -14671,7 +14678,7 @@ void Menu::rewind_comm()
 	}
 }
 /*
-Инверсия символов строк 
+Инверсия символов строк
 */
 void Menu::Set_drv_axis_inv()
 {
@@ -14842,7 +14849,7 @@ void Menu::prog_sw_c()
 		if(ref_.pRef[c]){
 			const long CNT = conv_c(mCounter[c].abs,c,1,1);
 			
-			if(flash_prg._Allp_param2[c].limit_plus){ //+вправо	
+			if(flash_prg._Allp_param2[c].limit_plus){ //+вправо
 				if(CNT >= flash_prg._Allp_param2[c].limit_plus && trg_p[c] == 0){
 					ch_sw_prog.plus |= CH;
 					trg_p[c] = 1;					
@@ -14858,7 +14865,7 @@ void Menu::prog_sw_c()
 					trg_m[c] = 0;
 				}										
 			}
-			if (flash_prg._Allp_param2[c].limit_minus){ //-влево			
+			if (flash_prg._Allp_param2[c].limit_minus){ //-влево
 				if(CNT <= flash_prg._Allp_param2[c].limit_minus && trg_m[c] == 0){
 					ch_sw_prog.minus |= CH;
 					trg_m[c] = 1;
@@ -14961,7 +14968,7 @@ void Menu::check_dir_pusk()
 	static CCNT_SENSOR::DIRECTION_CNT cur_dir_prev[N_AXIS];
 	for(int c = 0; c < N_AXIS;c++){
 		if(sts_c[c] && dir_exe[c] && tmr_axis_pusk[c] == 0){
-			CCNT_SENSOR::DIRECTION_CNT cur_dir = mCounter[c].get_dir(); // определение направления аппаратно			
+			CCNT_SENSOR::DIRECTION_CNT cur_dir = mCounter[c].get_dir(); // определение направления аппаратно
 			//==
 			//USART_DEBUG(timer[0][c]);
 			if(cur_dir == CCNT_SENSOR::NO_DIRECTION){
@@ -14971,7 +14978,7 @@ void Menu::check_dir_pusk()
 				if(dir_exe[c] == 1 || dir_exe[c] == -1){
 					if(timer[0][c] > 250){ //ждем 2,5 секунды переменная char макс 2,55 сек
 						//некорректно работает ошибка MOVE_ERROR, датчик долго стоит при смене направления и если есть еще люфт
-						//alert = MOVE_ERROR;//ошибка движения 
+						//alert = MOVE_ERROR;//ошибка движения
 						//move_axis_STOP();
 						timer[0][c] = 0;
 					}
@@ -15142,10 +15149,10 @@ long Menu::get_STOP_spd(uint8_t c)
 функция для преобразования счетчика
 long tmp - счетчик
 int i - канал
-char type - тип счетчика 0 (инкрементный или абсолютный в зависимости что на экране) 
- 1 - только абсолютный(используется для программных концевиков) программные концевики рассчитываются только с G53 
- G54 55 56 57 58 не участвуют в расчете 
-char no_endless_circle - 0 - преобразует счетчик в бесконечный круговой 
+char type - тип счетчика 0 (инкрементный или абсолютный в зависимости что на экране)
+ 1 - только абсолютный(используется для программных концевиков) программные концевики рассчитываются только с G53
+ G54 55 56 57 58 не участвуют в расчете
+char no_endless_circle - 0 - преобразует счетчик в бесконечный круговой
 */
 long Menu::conv_c(long tmp,int i,char type,char no_endless_circle)
 {
@@ -15175,7 +15182,7 @@ long Menu::conv_c(long tmp,int i,char type,char no_endless_circle)
 	l_d(tmp,i,on_display);
 
 	if(flash_prg.axis_cfg[i].format == CPrg::FORMAT::LINEAR_INCH_4)
-		coeff.div(255,&tmp,1,254,1);// делим			
+		coeff.div(255,&tmp,1,254,1);// делим
 		
 	if(!no_endless_circle){
 		flash_prg.endless_circle(&tmp,i);
@@ -15201,7 +15208,7 @@ void Menu::Instr_corr(long &tmp,int i)
 void Menu::set_surf(CInit::AXIS_NAME axis0,long &tmp,int i)
 {
 	if(_modals_cmd.G43 == 44 || _modals_cmd.G43 == 43){ //длина инструмента
-		if(P2[i] == axis0 && _modals_cmd.T_instr){ //ось с инструментом (к относительной координате или абс?)			
+		if(P2[i] == axis0 && _modals_cmd.T_instr){ //ось с инструментом (к относительной координате или абс?)
 			long instr = Ln4_form(T_instr[_modals_cmd.T_instr - 1].l,i);
 			if(_modals_cmd.G43 == 43)
 				instr = -instr;
@@ -15335,7 +15342,7 @@ void Menu::VIBOR_axis(int c,bool set,bool PORTOUT)
 	}
 }
 /*
-сброс выхода выбора оси, uint8_t chs - канал который не сбрасывать, если 0 
+сброс выхода выбора оси, uint8_t chs - канал который не сбрасывать, если 0
 то сбросить все каналы
 */
 void Menu::rst_VIBOR_axis(uint8_t chs,bool PORTOUT)
@@ -15378,7 +15385,7 @@ void Menu::G0G1(int i)
 				outABCD(get_ZONE_spd(i,z), &flash_prg._OUTAxis[i].Out_A,i);
 			else if(flash_prg._OUTAxis[i].typeZ == CPrg::ANALOG)
 				outAnalog(Spd_to_U(get_ZONE_spd(i,z),i,_modals_cmd.G0,1),flash_prg._OUTAxis2[i].AnalOut,flash_prg._OUTAxis2[i].Polar,dir_exe[i]);
-			if(z == 4){ //зона стоп				
+			if(z == 4){ //зона стоп
 				//outP(flash_prg._OUTAxis[i].vibor_axis, 0); //сброс выход Выбор Оси
 				STOP_axis(i);				
 				if(flash_prg._Allp_param2[i].v_Pozition < 50)
@@ -15500,9 +15507,9 @@ char Menu::wait_drive_lir541()
 	return tmp;
 }
 /*
-Выставление Дискретной скорости через выход A B C D 
+Выставление Дискретной скорости через выход A B C D
 char spdbit - 4ex битная команда скорости
-char *pin_assigment - номера пинов 
+char *pin_assigment - номера пинов
 char c - канал (не используется)
 bool PORTOUT - 1 - выдать в порт ,0 - не выдавать в порт
 */
@@ -15602,7 +15609,7 @@ long Menu::Spd_to_U(long Spd,uint8_t c, char G0,bool zones)
 	long F = getF_li(c);//_modals_cmd.F формат один 0.0000
 		
 	if(G0 == 1 && is_frame_move()){				
-		if(Spd > F) // фильтруем скорость если она больше _modals_cmd.F ,то ставиться _modals_cmd.F	
+		if(Spd > F) // фильтруем скорость если она больше _modals_cmd.F ,то ставиться _modals_cmd.F
 			Spd = F;			
 	}
 	long long _Spd = Spd;
@@ -15613,14 +15620,14 @@ long Menu::Spd_to_U(long Spd,uint8_t c, char G0,bool zones)
 			; //если зона меньше или равна корректору
 	}else{
 		F_cur[c] = _Spd; //сохранение скорости для изменения величины в движении
-		if(v_luft.ON[c] == 0) //корректор не действует на скорость люфта 
-			_Spd = (_Spd * _modals_cmd.Feed) / 100;	//умножение на процент Feed		
+		if(v_luft.ON[c] == 0) //корректор не действует на скорость люфта
+			_Spd = (_Spd * _modals_cmd.Feed) / 100;	//умножение на процент Feed
 		}	
 			
 	//фильтруем скорость на максимальное в параметрах
 	if(_Spd > Spd_max)
 		_Spd = Spd_max;				
-	// (формат скорости(0.0000) * формат напряжения(0.000) / формат скорости(0.0000))	
+	// (формат скорости(0.0000) * формат напряжения(0.000) / формат скорости(0.0000))
 	_Spd = (_Spd * U_max) /Spd_max;  // преобразование в U
 	
 	if(_Spd < 0)
@@ -15732,7 +15739,7 @@ void Menu::outP(char pin_out, bool set,bool PORTOUT /*= 0*/)
 }
 /*
 установка всех выходов разом
-int32_t p_out_ - выходы пульта 
+int32_t p_out_ - выходы пульта
 int32_t m_out_ - выходные маркеры внешнего контроллера
 int16_t U_out_a1 - выход1 ЦАП внешнего контроллера
 int16_t U_out_a2 - выход2 ЦАП внешнего контроллера
@@ -15932,7 +15939,7 @@ void Menu::input_handler_IRQ()
 				TORMOZ[c] = 0;
 		}
 		if(brk_t)
-			move_axis_STOP();// остановка всех каналов или нет? 
+			move_axis_STOP();// остановка всех каналов или нет?
 	//==
 	//==ИНСТРУМЕНТ
 	sig = inP(flash_prg._INGen.instrum_zajat,1,1);
@@ -15951,7 +15958,7 @@ void Menu::input_handler_IRQ()
 		}
 	else if (sig == NO_P)
 		INSTRUMENT_ZAJAT = 1;
-	//==ШПИНДЕЛЬ	
+	//==ШПИНДЕЛЬ
 	sig = inP(flash_prg._INGen.shpindel_vrashaetsia,1,1);
 	if(sig == 1)
 		SHPINDEL = 1;
@@ -16078,7 +16085,7 @@ void Menu::input_handler()
 				outP_G0(_modals_cmd.G0,1);
 				show_Instr(0,_resz_prg_v.SZ);
 				}
-			//сбрасываем все ,только если выбрано больше одной оси			
+			//сбрасываем все ,только если выбрано больше одной оси
 			if(!(invers_btn == 0 || invers_btn == 1 || invers_btn == 2 || invers_btn == 4 || invers_btn == 8 || invers_btn == 16)){
 					update_pic_axis_mh(0,1);	
 					axis_drive_stop_lir(0);
@@ -16206,7 +16213,7 @@ void Menu::VIBOR_AXIS_input()
 			//else if(res == 0)
 			//	USART_DEBUG(0);
 		}
-		//== фильтр спада 
+		//== фильтр спада
 		if(res == 0){
 			int sum = 0;
 			for(int c_ = 0 ; c_ < N_AXIS + N_SA;c_++){		
@@ -16385,7 +16392,7 @@ void Menu::OGRANICHITEL()
 	int off = 0;
 	if(ch_sw.plus || ch_sw.minus || ch_sw_prog.plus || ch_sw_prog.minus){		
 		if(ch_sw.plus || ch_sw.minus){ //приоретет для аппаратных концевиков
-			Lir.status(PSTR("ОГРАНИЧИТЕЛЬ"));			
+			Lir.status(PSTR("ОГРАНИЧИТЕЛЬ"));
 			for(int c = 0; c < N_AXIS + N_SA;c++){
 				if(ch_sw.plus & plb2(c)){
 					sw_str[off] = '+';
@@ -16402,7 +16409,7 @@ void Menu::OGRANICHITEL()
 			}
 		}
 		else if(ch_sw_prog.plus || ch_sw_prog.minus){
-			Lir.status(PSTR("ограничение")); // Программные концевики без слепой оси			
+			Lir.status(PSTR("ограничение")); // Программные концевики без слепой оси
 			for(int c = 0; c < N_AXIS;c++){
 				if(ch_sw_prog.plus & plb2(c)){
 					sw_str[off] = '+';
@@ -16988,7 +16995,7 @@ void Menu::check_cnt_z_exe(uint8_t chs)
 }
 
 /*
-установка направления и проверка если в выбранном направление включен 
+установка направления и проверка если в выбранном направление включен
 ограничитель или задание равно нулю то return 1 если иначе return 0
 */
 bool Menu::set_dir_exe(int8_t c)
@@ -17200,7 +17207,7 @@ void Menu::release_G91(long *ch_impulse, uint8_t chs)
 	
 	for (int c = 0; c < N_AXIS; c++) {
 		if (chs & plb2(c)) {
-			if(cnt_impulse_cur[c] == ch_impulse[c]){ //защита №3 если предыдущее задание не равно текущему 
+			if(cnt_impulse_cur[c] == ch_impulse[c]){ //защита №3 если предыдущее задание не равно текущему
 				move_controller(c);
 				ch_impulse[c] = cnt_z[c];
 			}
@@ -17394,8 +17401,8 @@ bool Menu::if_ABS(long *ch_impulse,uint8_t chs)
 	for(int c = 0; c < N_AXIS ;c++){
 		if(ref_.pRef[c] && (chs & plb2(c))){
 			cli();
-			const long CNT_tst = conv_c(mCounter[c].abs,c,1,1); // счетчик только G53	
-			const long CNT_tst0 = conv_c(mCounter[c].abs,c,0,1);// счетчик G53 - G5x		
+			const long CNT_tst = conv_c(mCounter[c].abs,c,1,1); // счетчик только G53
+			const long CNT_tst0 = conv_c(mCounter[c].abs,c,0,1);// счетчик G53 - G5x
 			sei();	
 			if (MsgKey.offset_number > 0 && MsgKey.offset_number < 6){	
 				if(_modals_cmd.G90 == 0)						
@@ -17411,7 +17418,7 @@ bool Menu::if_ABS(long *ch_impulse,uint8_t chs)
 					tmp = CNT_tst + ch_impulse[c];
 			}			
 
-			if(flash_prg._Allp_param2[c].limit_plus){//проверяем не выходит ли за ограничитель + 
+			if(flash_prg._Allp_param2[c].limit_plus){//проверяем не выходит ли за ограничитель +
 				if(tmp > flash_prg._Allp_param2[c].limit_plus){
 					status(PSTR("Задание > ограничения+"),300);
 					return true;
@@ -17589,7 +17596,7 @@ int Menu::get_M_from_cmd(char *M,char* frame, int sz_frame)
 			if(curItem->id == idExecmd){
 				if(first_frame == 0){
 					//last_frame = true;
-					outP(flash_prg._OUTGen.texnolog_stop_M0,1,1);//выставить выход М0	
+					outP(flash_prg._OUTGen.texnolog_stop_M0,1,1);//выставить выход М0
 					outM5_delay();
 					if (config_NC.one_frame)
 						entry_exe = ONE_FRM_DOWN;
@@ -17666,7 +17673,7 @@ int Menu::set_wait_M_input(int M)
 		if(M == M_tmp){
 			res = inP(*p_M);
 			if(res == 0 ){
-			//записываем в глобальный указатель адрес входа и ждем 
+			//записываем в глобальный указатель адрес входа и ждем
 			p_M102_gl = p_M;
 			entry_exe = DELAY_INPUT_M;			
 			return 1;
@@ -18354,7 +18361,7 @@ char z - ,
 2 - 3 зона,
 3 - 4 зона,
 4 - зона СТОП
-return true - если есть движение по каналу c датчиками и пройдена зона 
+return true - если есть движение по каналу c датчиками и пройдена зона
 */
 bool Menu::passedZN(int8_t z)
 {
@@ -18435,13 +18442,13 @@ void Menu::sym_invers(int s,char set,bool clr)
 	if(s == SW_AXIS0)	
 		ch = 4;
 	else
-	    ch = get_channel(Lir.Str[s]); //нет проверки на отсутствие канала	
+	    ch = get_channel(Lir.Str[s]); //нет проверки на отсутствие канала
 	//==	
 	if(invers_btn & plb2(s) && (set == 0 || set == 2)){
 		NORMAL_CHAR();
 		ch_to_move &= ~get_ch_mcx514(ch);
 		invers_btn &= ~plb2(s);
-		outP(flash_prg._OUTAxis[ch].vibor_axis, 0,0); //сбросить выход Выбор Оси		
+		outP(flash_prg._OUTAxis[ch].vibor_axis, 0,0); //сбросить выход Выбор Оси
 	}
 	else if(set == 1 || set == 2){
 		INVERT_CHAR();
@@ -18588,7 +18595,7 @@ void Menu::F_mh()
 					strfunc_hand = s;
 			}
 			dir_mh_sv = dir_mh;
-			stop_mh();//выход из режима ручное перемещение 
+			stop_mh();//выход из режима ручное перемещение
 			screen.update_icons_hand_mode();//входим в режим FUNC с инвертированной сохраненной осью
 			invert_axis_in_modeFUNC(convStoKey(strfunc_hand));
 			HM_toF = 1;			
@@ -18620,7 +18627,7 @@ void Menu::BLANK2_mh(const char& BLANK)
 			stop_mh();//выход из режима ручное перемещение
 			MsgKey.tracer_next = TMsgKey::CMD_CNTRL;
 			screen.update_icons_hand_mode();//входим в режим CMD_CNTRL
-			invert_axis_in_modeFUNC(EMPTY_KEY);	//сброс инверсии осей		
+			invert_axis_in_modeFUNC(EMPTY_KEY);	//сброс инверсии осей
 			Lir.init_hand_CMD_CTRL(0);//инициализация CMD_CTRL
 			//==переходим в режим ввода
 			MsgKey.SET_M(TMsgKey::MODE::INPUT_PARAM);
@@ -18725,7 +18732,7 @@ void Menu::tolchok_release()
 }
 
 /*
-начать продолжительное перемещения 
+начать продолжительное перемещения
 */
 void Menu::move_axis_START()
 {
@@ -18742,7 +18749,7 @@ void Menu::move_axis_START()
 остановить перемещение
 возвращаемся в меню пуска команды
 char sw_ch - каналы для стопа , по умолчанию все 0XFF
-нужна ли при этом остановка шпинделя? 
+нужна ли при этом остановка шпинделя?
 */
 void Menu::move_axis_STOP(char sw_ch)
 {		
@@ -18861,7 +18868,7 @@ bool Menu::INMovingKeys()
 }
 
 /*
-отключение светодиодов направление только если выбор направления безразмерно перемещения dir_mh равен 0 
+отключение светодиодов направление только если выбор направления безразмерно перемещения dir_mh равен 0
 */
 void Menu::OFF_D_LEFT_RIGHT()
 {
@@ -18873,7 +18880,7 @@ void Menu::OFF_D_LEFT_RIGHT()
 
 #if (configUSE_NCshell == 1)
 /*
-bool rst_vibor - если 1 то снятие выхода ВЫБОР ОСИ 
+bool rst_vibor - если 1 то снятие выхода ВЫБОР ОСИ
 char sw_ch - каналы для стопа, по умолчанию 0xFF (все каналы)
 */
 void Menu::axis_drive_stop_lir(bool rst_vibor,char sw_ch)
@@ -19602,7 +19609,7 @@ void Menu::action_Linear_holes()
 }
 /*
 функция вызывается по нажатию кнопки либо влево(_key_LEFT) либо вправо (_key_RIGHT)
-const char &r_l - переменная определяющая направление '-'<- или ->'+'   
+const char &r_l - переменная определяющая направление '-'<- или ->'+'
 */
 void Menu::change_param_lh_left_right(const char &r_l)
 {
@@ -19877,7 +19884,7 @@ void Menu::getcoord_inlinear_one()
 		if (flash_prg.axis_cfg[ch2].format == CPrg::FORMAT::LINEAR_2 )      {channel_2 = 100;}
 		if (flash_prg.axis_cfg[ch2].format == CPrg::FORMAT::LINEAR_3 )      {channel_2 = 10;}
 		
-//===логика		
+//===логика
 		bool t;
 		if (dir_lh_btn)
 			t = count_holes_lh % holes_lh;
@@ -20293,7 +20300,7 @@ void Menu::enter_to_input_loop_ch()
 			SET_C(idInpointRadiusInput);
 		if(menu_ch == 5 && secondary_axis_ch != no_axis) // центр вторичная ось
 			SET_C(idInpointRadiusInput);
-		if(menu_ch == 7) //радиус 
+		if(menu_ch == 7) //радиус
 			SET_C(idInpointRadiusInput);
 		if(menu_ch == 8) //начальный угол
 			SET_C(idInpointRadiusInput);
@@ -21805,7 +21812,7 @@ Menu::_MAXO& Menu::_MAXO::operator=(bool set)
 			}
 		}	
 		
-		sync();//==синхронизация 
+		sync();//==синхронизация
 		if(mul == 1)
 			display.put_button_with_pic(X_BUTTON_PLACE,Y_THREE,_pic_HWx1);
 		else if (mul == 10)

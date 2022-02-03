@@ -15,7 +15,7 @@
 #include "io_altera.h"
 #include "config.h"
 
-#define YESNO_P_bm   0x80 // 1 - нет  ,0 - есть 
+#define YESNO_P_bm   0x80 // 1 - нет  ,0 - есть
 #define INVERSE_P_bm 0x40 // 1 - нет инверсии  ,0 - есть инверсия
 #define P_OR_m_bm    0x20 // 1 - Пульт ,0 - Контроллер
 #define DATA_P_bm    0x1F // максимальный номер в параметре 31 (32)
@@ -591,7 +591,7 @@ CIOAltera::ERROR_CORR_REAL_TIME to_do_correction_common_in_realtime(long *abs,lo
 unsigned char *header_mines,unsigned int start_page_plus,unsigned int start_page_mines,uint8_t ch);
 unsigned int flash_start,pages_counter,flash_start_mines;
 int block_plus,block_mines,timeout_for_flash;
-unsigned char plus[264],mines[264];//массив для буфера считывания с флэшь 
+unsigned char plus[264],mines[264];//массив для буфера считывания с флэшь
 
 bool read_page_from_23LCV1024,stop_flashing,to_stop_if_key_C_is_pressed;
 bool error_when_work_with_RAM_or_FLASH;
@@ -958,8 +958,12 @@ void to_take_counters_to_the_structure(void){
 //04.09.2013 end of class Cprg
 };
 //============================
-
-    extern CPrg flash_prg;
+#ifdef STM32F429xx
+#include "../../Middlewares/Eeprom/CPrgSTM.h"
+extern CPrgSTM flash_prg;
+#else
+extern CPrg flash_prg;
+#endif
 //    extern CDisp display;
 
 #endif

@@ -32,6 +32,7 @@
 /* Scheduler includes. */
 #include "FreeRTOS.h"
 #include "task.h"
+#include "main_stm.h"
 
 #ifndef __VFP_FP__
 	#error This port can only be used when the project options are configured to enable hardware floating point support.
@@ -431,7 +432,7 @@ void vPortExitCritical( void )
 void xPortPendSVHandler( void )
 {
 	/* This is a naked function. */
-
+	DBG2_TOG
 	__asm volatile
 	(
 	"	mrs r0, psp							\n"

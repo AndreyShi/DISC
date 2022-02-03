@@ -27,14 +27,22 @@
 
 TMsgKey MsgKey;
 CInit init;
+
 #ifdef STM32F429xx
 CDispRGB display;
 #else
 CDisp display;
 #endif
+
 CSpiMaster spi;
 CFlash myflash;
+
+#ifdef STM32F429xx
+CPrgSTM flash_prg;
+#else
 CPrg flash_prg;
+#endif
+
 Cled_key_sound l_k_s;
 CUART_usb uart_usb;
 Menu Lir;
@@ -265,7 +273,7 @@ ISR(PORTB_INT0_vect){
 }
 /*
 функция для работы с железом по TWI
-выключение блока 
+выключение блока
 */
 void work_with_twi(){
 	unsigned char key;
@@ -418,7 +426,7 @@ void  work_with_hardware(){
 		MsgKey.submodes_ref_mode_are_executed();
 #if (configUSE_menuItem_Correction_and_Izmerenia == 1)
 	if(MsgKey.mode == TMsgKey::MODE::INPUT_PARAM && Lir.curItem->id != idMenuEncoders)
-		flash_prg.item_correction_inside_INPUT_PARAM(); //в меню РАБОТА С ТАБЛИЦАМИ И СНЯТИЕ КОРРЕКЦИИ через память RAM 
+		flash_prg.item_correction_inside_INPUT_PARAM(); //в меню РАБОТА С ТАБЛИЦАМИ И СНЯТИЕ КОРРЕКЦИИ через память RAM
 #endif
 	//-------------------------------------------
 	//init.clr_B6();
@@ -479,7 +487,7 @@ ISR(RTC_OVF_vect)
    //init.clr_B6();
 } 
 /*
-таймер серво цикл период 1мс 
+таймер серво цикл период 1мс
 */
 #if (configUSE_Cycle1ms == 1)
 ISR(TCC0_OVF_vect){
@@ -518,7 +526,7 @@ ISR(USARTD1_RXC_vect)
 }
 
 /*
-вектор прерывания по окончанию отправки пакета Tx rs485 
+вектор прерывания по окончанию отправки пакета Tx rs485
 */
 ISR(DMA_CH0_vect){	
 	DMA.CH0.CTRLB |= DMA_CH_TRNIF_bm;// очистка флага стр 61 описания
@@ -528,7 +536,7 @@ ISR(DMA_CH0_vect){
 	//init.set_B6();		
 }
 /*
-вектор прерывания по окончанию приема пакета Rx rs485 
+вектор прерывания по окончанию приема пакета Rx rs485
 */
 ISR(DMA_CH1_vect){
 	//init.clr_B6();	
@@ -576,7 +584,7 @@ void to_copy_parameters_from_eeprom_to_ram(void){
 	//flash_prg.read_eeprom(1921,sizeof(Lir.R_r),&Lir.R_r);
 #if (configUSE_NCshell == 1)
 //занимаемый адрес с 188 по 315 ,
-//вычисление объема занимаемой памяти в байтах (конечный адрес - начальный адрес) + 1 байт 
+//вычисление объема занимаемой памяти в байтах (конечный адрес - начальный адрес) + 1 байт
 //315 - 188 = 127 + 1 байт = 128
 	flash_prg.read_eeprom(188,sizeof(flash_prg._Allp_param[0]) * N_AXIS,&flash_prg._Allp_param);// Зоны скорости
 //вторая часть параметров с 316 по 443
@@ -603,9 +611,9 @@ void to_copy_parameters_from_eeprom_to_ram(void){
 //двенадцатая часть параметров с 1116 по....1147  // слепая ось Зоны скорости
 	flash_prg.read_eeprom(1116,sizeof(flash_prg._Allp_param[SW_AXIS0]),&flash_prg._Allp_param[SW_AXIS0]);
 #endif
-//тринадцатая часть параметров с 1148 по....1179  // 
+//тринадцатая часть параметров с 1148 по....1179  //
 	flash_prg.read_eeprom(1148,sizeof(flash_prg._OUTGen2),&flash_prg._OUTGen2);
-//четырнадцатая часть параметров с 1180 по....1211 // 
+//четырнадцатая часть параметров с 1180 по....1211 //
 	flash_prg.read_eeprom(1180,sizeof(flash_prg._INGen2),&flash_prg._INGen2);
 #if (configUSE_Shadow_axis == 1)
 // номер слепой оси 1 байт 1212
@@ -788,8 +796,8 @@ int main()
    //======================================
    #if (configUSE_Cycle1ms == 1)
    //====================Включение TCC0====период слегка прыгает
-   TCC0.CTRLA=0x05; // предделитель      
-   TCC0.PER=500-1;  // настройка периода 1 ms       
+   TCC0.CTRLA=0x05; // предделитель
+   TCC0.PER=500-1;  // настройка периода 1 ms
    Lir.timer1MSEKON();
    //======================================
    #endif   

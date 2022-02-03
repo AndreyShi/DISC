@@ -627,6 +627,7 @@ void StartDefaultTask(void const * argument)
   MX_USB_HOST_Init();
   /* USER CODE BEGIN 5 */
   OSC.STATUS = 0xff;
+  ADCA.CH0.INTFLAGS = 0x01;
   init.to_see_enigma = 4;
   /* Infinite loop */
   main_t();
@@ -637,9 +638,12 @@ void StartTask02(void const * argument)
 {
 	for(;;)
 	  {
+		vPortEnterCritical();
+		DBG1_SET
 	    isr_RTC_OVF_vect();
-	    //DBG1_TOG
-	    //DBG2_TOG
+		DBG1_RST
+		vPortExitCritical();
+		osDelay(10);
 	  }
 }
 

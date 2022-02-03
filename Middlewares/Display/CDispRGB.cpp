@@ -119,7 +119,22 @@ void CDispRGB::put_button_with_pic(unsigned int x,unsigned char y,BUTTON_PIC npi
 };
 
 void CDispRGB::clear_rectangle(unsigned int x,unsigned char y,unsigned int l,unsigned char h,unsigned char data,unsigned char page ){
-	//::ILI9341_DrawRectangle(x, y, l, h, GREEN);
+	::ILI9341_DrawRectangle(x, y * 8, l, h * 8, WHITE);
+}
+
+
+void CDispRGB::put_axis_shot(unsigned int x,unsigned char y,unsigned char name_axis){
+	::put_axis_big(name_axis, x, y * 8,BLACK,WHITE);
+}
+
+void CDispRGB::put_char_local_independent(char symbol, char page,unsigned int x_,unsigned char y_){
+	::put_char(symbol, x_ * 8, y_,BLACK,WHITE);
+}
+
+void CDispRGB::put_big_symbol(const unsigned char digit, char page,const unsigned char &width,unsigned int x,unsigned char y){
+	if(width == 24){//пока только цифры
+	::put_digit_big(digit, x, y * 8,BLACK,WHITE);
+	}
 }
 
 

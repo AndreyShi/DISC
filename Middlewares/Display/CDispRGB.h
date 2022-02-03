@@ -20,6 +20,10 @@ public:
 	void put_button_pic_(unsigned int x,unsigned char y,BUTTON_PIC npic);
 	void put_button_with_pic(unsigned int x,unsigned char y,BUTTON_PIC npic);
 	void clear_rectangle(unsigned int x,unsigned char y,unsigned int l,unsigned char h,unsigned char data,unsigned char page );
+
+	void put_axis_shot(unsigned int x,unsigned char y,unsigned char name_axis);
+	void put_char_local_independent(char symbol, char page,unsigned int x_,unsigned char y_);
+	void put_big_symbol(const unsigned char digit, char page,const unsigned char &width,unsigned int x,unsigned char y);
 };
 extern CDispRGB display;
 
