@@ -134,7 +134,7 @@ int main(void)
 
   OSC.STATUS = 0xff;
   init.to_see_enigma = 4;
-  main_t();
+  //main_t();
   //put_button_pic(0, 10, 10,BLACK, WHITE);//+
   //for(int i = 0 ; i <256;i++){
   //put_char('д', 10, 10,BLACK, WHITE);//+
@@ -631,7 +631,9 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+	  main_t();
     osDelay(1);
+    isr_RTC_OVF_vect();
   }
   /* USER CODE END 5 */
 }
