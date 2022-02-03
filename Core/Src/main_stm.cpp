@@ -62,6 +62,7 @@ SDRAM_HandleTypeDef hsdram1;
 
 osThreadId defaultTaskHandle;
 /* USER CODE BEGIN PV */
+osThreadId Task02Handle;
 extern LCD_DrvTypeDef   ili9341_drv;
 extern int main_t();
 /* USER CODE END PV */
@@ -77,6 +78,7 @@ static void MX_LTDC_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_USART1_UART_Init(void);
 void StartDefaultTask(void const * argument);
+void StartTask02(void const * argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -131,20 +133,6 @@ int main(void)
   put_digit_large(i, 10, 10,BLACK, WHITE);
   HAL_Delay(1);
   }
-
-  OSC.STATUS = 0xff;
-  init.to_see_enigma = 4;
-  //main_t();
-  //put_button_pic(0, 10, 10,BLACK, WHITE);//+
-  //for(int i = 0 ; i <256;i++){
-  //put_char('д', 10, 10,BLACK, WHITE);//+
- // HAL_Delay(500);
- // }
-  //put_button( 10, 10,BLACK, WHITE);
-
-   //put_axis_big(i, 10, 10,BLACK, WHITE);// +
-  //draw_custom();
-  //ILI9341_DrawText("HELLO WORLD!", FONT4, 0, 0, WHITE, BLACK);
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -169,6 +157,8 @@ int main(void)
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
+  osThreadDef(Task02, StartTask02, osPriorityNormal, 0, 128);
+  Task02Handle = osThreadCreate(osThread(Task02), NULL);
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
@@ -628,14 +618,19 @@ void StartDefaultTask(void const * argument)
   /* init code for USB_HOST */
   MX_USB_HOST_Init();
   /* USER CODE BEGIN 5 */
+  OSC.STATUS = 0xff;
+  init.to_see_enigma = 4;
   /* Infinite loop */
-  for(;;)
-  {
-	  main_t();
-    osDelay(1);
-    isr_RTC_OVF_vect();
-  }
+  main_t();
   /* USER CODE END 5 */
+}
+
+void StartTask02(void const * argument)
+{
+	for(;;)
+	  {
+	    isr_RTC_OVF_vect();
+	  }
 }
 
 /**
