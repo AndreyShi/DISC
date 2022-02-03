@@ -600,6 +600,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
+  /*Configure GPIO DBG pins: DBG1_pin DBG2_pin*/
+  GPIO_InitStruct.Pin = DBG1_pin|DBG2_pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOE_STM, &GPIO_InitStruct);
+
+
 }
 
 /* USER CODE BEGIN 4 */
@@ -630,6 +638,8 @@ void StartTask02(void const * argument)
 	for(;;)
 	  {
 	    isr_RTC_OVF_vect();
+	    //DBG1_TOG
+	    //DBG2_TOG
 	  }
 }
 

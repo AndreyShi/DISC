@@ -54,7 +54,20 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
+#define DBG1_pin GPIO_PIN_2
+#define DBG2_pin GPIO_PIN_4
+#define DBG1_PORT GPIOE_STM
+#define DBG2_PORT GPIOE_STM
 
+// отладка
+#define DBG1_SET DBG1_PORT->BSRR |= (DBG1_pin)
+#define DBG1_RST DBG1_PORT->BSRR |= (DBG1_pin << 16)
+
+#define DBG2_SET DBG2_PORT->BSRR |= (DBG2_pin)
+#define DBG2_RST DBG2_PORT->BSRR |= (DBG2_pin << 16)
+
+#define DBG1_TOG DBG1_SET;DBG1_RST;
+#define DBG2_TOG DBG2_SET;DBG2_RST;
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
